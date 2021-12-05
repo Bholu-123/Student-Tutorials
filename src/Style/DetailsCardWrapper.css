@@ -1,0 +1,35 @@
+.details-container{
+    margin-top: 3rem;
+    width: 80%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+@media only screen and (max-width: 850px){
+    .details-container{
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .details-container{
+        width: 100%;
+    }
+}
+
+.details-heading{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+}
+
+.details-card-wrapper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 1rem auto;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+} 

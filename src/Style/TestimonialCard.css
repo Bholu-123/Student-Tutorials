@@ -1,0 +1,138 @@
+.carousel-testimonial-container{
+   width: 100%;
+   margin-bottom: 3rem;
+}
+
+.testimonial-card-wrapper{
+  width: 90%;
+  margin: auto;
+}
+
+.testimonial-card{
+    width: 80%;
+    height: 30rem;
+    min-width: max-content;
+    min-height: max-content;
+    margin: 80px auto;
+    box-shadow: 2px 2px 35px 10px rgba(112, 103, 103, 0.2);
+    background-color: #fff;
+    position: relative;
+    padding-top: 30%;
+    padding-left: 2%;
+    padding-right: 5%;
+    padding-bottom: 2%;
+    border-top: 5px solid rgb(72, 72, 226);
+    border-radius: 1rem;
+}
+
+
+@media only screen and (max-width: 420px){
+    .testimonial-card{
+        width: 100%;
+        margin: 80px 5px;
+    } 
+    
+    .testimonial-card-wrapper{
+        width: 100%;
+        margin: auto 5px;
+    } 
+
+
+    
+}
+
+@media only screen and (max-width: 760px){
+
+    .testimonial-card{
+        width: 95%;
+    } 
+    
+    .testimonial-card-wrapper{
+        width: 70%;
+        margin: auto;
+    } 
+
+    .testimonial-image{
+        left: 32%;
+    
+    }
+
+    /* .slick-prev{
+        height: 3rem !important;
+        width: 4rem !important;
+    }
+    
+    .slick-next{
+        height: 3rem !important;
+        width: 4rem !important;
+    } */
+}
+
+.testimonial-prevArrow{
+    font-size: 2rem;
+}
+
+
+
+.testimonial-image{
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    top: -20%;
+    left: 37%;
+
+}
+
+.testimonial-card-content{
+    position: absolute;
+    top: 15%;
+    right: 4%;
+    left: 4%;
+    font-size: 1.5rem; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimonial-card .people-name{
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-card .people-content{
+    font-size: 1.6rem;
+    color: #445d6e;
+}
+
+.testimonial-card .people-job{
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.people-content-container{
+    height: 10rem;
+    overflow-y: scroll;
+}
+
+.slick-prev{
+    height: 5rem !important;
+    width: 3rem !important;
+    /* background-color: rgb(215, 230, 230);
+    box-shadow: 2px 2px 35px 10px rgba(112, 103, 103, 0.2);
+    padding: 1rem !important;
+    border-radius: 50px; */
+}
+
+.slick-next{
+    height: 5rem !important; ;
+    width: 3rem !important;
+    /* background-color: rgb(215, 230, 230);
+    box-shadow: 2px 2px 35px 10px rgba(112, 103, 103, 0.2);
+    padding: 1rem !important;
+    border-radius: 50px; */
+}

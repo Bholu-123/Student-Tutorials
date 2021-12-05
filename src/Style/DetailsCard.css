@@ -1,0 +1,50 @@
+.details-card{
+    width: 30rem;
+    min-height: max-content;
+    margin: 2rem;
+    padding: 1.5rem;
+    transition: box-shadow .3s;
+    border-radius: 15px;
+}
+
+@media only screen and (max-width: 850px){
+    .details-card{
+        width: 40rem;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .details-card{
+        width: 90%;
+    }
+}
+
+.details-card:hover{
+    box-shadow: 5px 5px 35px 10px rgba(112, 103, 103, 0.2);
+}
+
+.details-card .details-card-image{
+    width:100%;
+    height: 16rem;
+    color: #626ee3;
+    object-fit: cover;
+}
+
+.details-card .card-title{
+    align-content: center;
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    font-weight: bold;
+    color: #02203c;
+}
+.details-card .card-para{
+    font-weight: normal;
+    font-size: 1.5rem;
+    color :#445d6e;
+    margin-left: auto;
+    margin-right: auto;
+
+}
