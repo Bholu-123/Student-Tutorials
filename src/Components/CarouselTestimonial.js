@@ -2,6 +2,7 @@ import React from 'react'
 import TestimonialCard from './TestimonialCard';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import { NavLink as Link } from "react-router-dom";
 import Slider from "react-slick";
 import '../Style/TestimonialCard.css';
 import LeftArrow from "../assets/left-arrow.svg"
@@ -45,7 +46,7 @@ export default class CarouselTestimonial extends React.PureComponent {
 
     return (
       <div className="carousel-testimonial-container">
-        {/* <h2> Single Item</h2> */}
+        <h2 className="carousel-testimonial-title">Over 9000 Satisfied Students</h2>
         <Slider {...settings} className="testimonial-card-wrapper">
             <div>
               <TestimonialCard/>
@@ -66,6 +67,9 @@ export default class CarouselTestimonial extends React.PureComponent {
               <TestimonialCard/>
             </div>
         </Slider>
+        <Link to='/allTestimonials' className='read-testimonials-btn'>
+            Read More Testimonials
+        </Link>
       </div>
     );
   }

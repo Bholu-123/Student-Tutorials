@@ -1,30 +1,26 @@
 import React from "react";
 import './App.css';
 import Navbar from './Components/Navbar';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './Components/Home';
 import About from './Components/About';
 import Contact from './Components/Contact';
 import Faculty from './Components/Faculty';
 import Login from './Components/Login';
-import Banner from './Components/Banner';
-import DetailsCardWrapper from './Components/DetailsCardWrapper';
-import CarouselTestimonial from "./Components/CarouselTestimonial";
+import AllTestimonials from './Components/AllTestimonials';
 
 const App = () => {
   return (
     <Router>
       <Navbar />
-      <Routes>
+      <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/faculty" component={Faculty} />
-        <Route path="/login" component={Login} />
-      </Routes>
-      <Banner/>
-      <DetailsCardWrapper/>
-      <CarouselTestimonial/>
+        <Route path="/about" exact component={About} />
+        <Route path="/contact" exact component={Contact} />
+        <Route path="/faculty" exact component={Faculty} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/allTestimonials" exact component={AllTestimonials} />
+      </Switch>
     </Router>
   );
 }
