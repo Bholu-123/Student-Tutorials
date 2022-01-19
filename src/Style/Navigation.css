@@ -11,28 +11,19 @@
     justify-content: space-between;
     align-items: center;
     padding-top: .8rem;
-    height: 6rem;
+    height: 9rem;
     width: 100%;
     z-index: 1000;
 }
 
-.navbar-logo{
-    color: black;
+.logo-img{
+    height: 8rem;
+    width: 8rem;
     margin-left: 2rem;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 3rem;
-    position: relative;
-    top: 0;
 }
 
-.navbar-logo h2{
-    font-size: 2.5rem;
-}
-
-.navbar-logo span{
-    color:#a82682;
-    margin-right: .5rem;
+.sidebar-logo-img{
+    display: none;
 }
 
 .fa-typo3 {
@@ -63,7 +54,8 @@
     text-decoration: none;
     padding: 1rem 1rem;
     height: 100%;
-    font-size: 1.7rem;
+    font-size: 2.5rem;
+    margin-left: 1.5rem;
 }
 
 .nav-links:hover {
@@ -84,43 +76,8 @@
   display: none;
 }
 
-/* .sign-up-btn{
-   color: white;
-   background-color: transparent;
-   border: 1px solid red;
-   text-decoration: none;
-   margin-right: 1.5rem;
-   padding: 1rem 1.5rem;
-   font-size: 1.8rem;
-} */
-
-/* .sidebar-logo{
-    display: none;
-} */
 
 @media screen and (max-width: 960px) {
-    /* .sidebar-logo{
-        display: block;
-        border-bottom: 1px solid rgb(212, 15, 15);
-        display: block;
-        width: 100%;
-    }
-
-    .sidebar-logo-text{
-        text-decoration: none;
-        color: rgb(223, 17, 17);
-        font-size: 2rem;
-        font-weight: bold;
-        margin-top: 10px !important;
-    }
-
-    .sign-up-btn{
-        position: absolute;
-        top: 1.2rem;
-        right: 0px;
-        font-size: 2rem;
-    } */
-
     .nav-menu {
         display: flex;
         flex-direction: column;
@@ -131,18 +88,22 @@
         width: 30vw;
         height: 100vh;
         position: absolute;
-        top: 72px;
+        top: 10rem;
         left: -100%;
         opacity: 1;
         padding-bottom: 5rem;
-        padding-right: 10px;
+        padding-right: 2rem;
         transition: all 0.5s ease;
-    }
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+}
 
     .nav-menu.active {
         background: #fff;
         left: 0;
-        top: 9vh;
+        top: 9rem;
         opacity: 1;
         transition: all 0.5s ease;
     }
@@ -161,17 +122,11 @@
         transition: all 0.2s ease-out;
     }
 
-    .navbar-logo {
-        position: absolute;
-        top: 15px;
-        left: 37%;
-    }
-
     .menu-icon {
         display: block;
         position: absolute;
         top: 1.5rem;
-        left: 2rem;
+        right: 2rem;
         font-size: 3rem;
         cursor: pointer;
     }
@@ -180,64 +135,15 @@
         color: black;
         font-size: 3rem;
     }
-
-    /* .nav-links-mobile {
-        display: block;
-        text-align: center;
-        margin: 2rem auto;
-        border-radius: 4px;
-        width: 80%;
-        text-decoration: none;
-        font-size: 2rem;
-        background-color: transparent;
-        color: #fff;
-        padding: 14px 20px;
-        border: 1px solid #fff;
-        transition: all 0.3s ease-out;
-    }
-
-    .nav-links-mobile:hover {
-        border-bottom: 4px solid #a82682;
-        color: #a82682;
-        transition: all 0.2s ease-out;
-    } */
-
-    /* .nav-links-mobile:hover {
-        background: #fff;
-        color: #242424;
-        transition: 250ms;
-        -webkit-transition: 250ms;
-        -moz-transition: 250ms;
-        -ms-transition: 250ms;
-        -o-transition: 250ms;
-} */
-}
-
-@media screen and (max-width: 768px) {
-
-    .navbar-logo {
-        position: absolute;
-        top: 15px;
-        left: 30%;
-    }
-
-}
-
-@media screen and (max-width: 500px) {
-     .menu-icon {
-        position: absolute;
-        top: 15px;
-        left: 10px;
-        font-size: 2.5rem;
-    }
-
 }
 
 @media screen and (max-width: 425px) {
-    .navbar-logo {
+    .logo-img {
         position: absolute;
-        top: 20px;
-        left: 12%;
-        font-size: 2rem;
+        top: 5px;
+    }
+
+    .menu-icon {
+        right: 2rem;
     }
 }

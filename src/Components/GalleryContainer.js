@@ -6,11 +6,11 @@ const GalleryContainer = () => {
     const dummyData = [
       {
         image: "./Classes/DSC_6607.JPG",
-        title: "Our Classroom",
+        title: "Classroom",
       },
       {
         image: "./Classes/DSC_6607.JPG",
-        title: "Annual Events",
+        title: "Events",
       },
 
       {
@@ -21,9 +21,9 @@ const GalleryContainer = () => {
     return (
       <div className="gallery-container">
         <h2 className="gallery-title">Gallery</h2>
-        <div className="gallery-title-border">
+        {/* <div className="gallery-title-border">
           <span></span>
-        </div>
+        </div> */}
         <div class="gallery-card">
           {dummyData.map((element) => {
             return <Gallery image={element.image} title={element.title} />;

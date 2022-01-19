@@ -10,6 +10,7 @@
    width: 100%;
    margin-bottom: 3rem;
    position: relative;
+   padding-top: 2rem;
 }
 
 .testimonial-card-wrapper{
@@ -23,7 +24,9 @@
     justify-content: center;
     align-items: center;
     font-size: 3.5rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
+    text-transform: uppercase;
+
 }
 
 .testimonial-card{
@@ -103,49 +106,6 @@
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.801); 
 }
 
-@media only screen and (max-width: 760px){
-
-    .testimonial-card{
-        width: 90%;
-    } 
-    
-    .testimonial-card-wrapper{
-        width: 90%;
-        margin: auto;
-    } 
-
-    .testimonial-image{
-        width: 7rem;
-        height: 7rem;
-        position: absolute;
-        top: -16%;
-        left: 37%;
-    }
-}
-
-/* @media only screen and (max-width: 430px){
-    .carousel-testimonial-title{
-        font-size: 3rem;
-    }
-    .testimonial-card{
-        width: 100%;
-        margin: 80px 12px;
-    } 
-    
-    .testimonial-card-wrapper{
-        width: 100%;
-    } 
-    
-    .testimonial-image{
-        width: 7rem;
-        height: 7rem;
-        position: absolute;
-        top: -16%;
-        left: 37%;
-    }
-    
-} */
-
 .read-testimonials-btn{
     color: black;
     background-color: white;
@@ -169,5 +129,49 @@
     transform: translateY(-6px);
 }
 
+@media only screen and (max-width: 760px){
 
+    .testimonial-card{
+        width: 30rem;
+    } 
+    
+    .testimonial-card-wrapper{
+        width: 90%;
+        margin: auto;
+    } 
+
+    .testimonial-image{
+        width: 7rem;
+        height: 7rem;
+        position: absolute;
+        top: -16%;
+        left: 37%;
+    }
+}
+
+@media only screen and (max-width: 760px){
+
+    .testimonial-card{
+        width: 30rem;
+    } 
+    
+    .testimonial-card-wrapper{
+        width: 90%;
+        margin: auto;
+    } 
+
+    .testimonial-image{
+        width: 7rem;
+        height: 7rem;
+        position: absolute;
+        top: -16%;
+        left: 37%;
+    }
+}
+
+@media(max-width: 450px){
+    .testimonial-card{
+        width: 90vw;
+    }
+}
 

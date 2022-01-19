@@ -7,22 +7,20 @@ function Footer() {
       <div className={styles.Left}>
         <h3 className={styles.Title}>Company</h3>
         <ul className={styles.List}>
+          <li className={styles.ListItem}>Home</li>
           <li className={styles.ListItem}>About Us</li>
-          <li className={styles.ListItem}>Media</li>
-          <li className={styles.ListItem}>Careers</li>
-          <li className={styles.ListItem}>Privacy Policy</li>
-          <li className={styles.ListItem}>Terms  Conditions</li>
+          <li className={styles.ListItem}>Gallery</li>
+          <li className={styles.ListItem}>Corses</li>
         </ul>
       </div>
 
       <div className={styles.Center}>
         <h3 className={styles.Title}>Services</h3>
         <ul className={styles.List}>
-          <li className={styles.ListItem}>Local Car Rentals</li>
-          <li className={styles.ListItem}>Outstation Taxi</li>
-          <li className={styles.ListItem}>One way cabs</li>
-          <li className={styles.ListItem}>Corporate Car Rental</li>
-          <li className={styles.ListItem}>Airport Taxi</li>
+          <li className={styles.ListItem}>SSC batch</li>
+          <li className={styles.ListItem}>8th and 9th</li>
+          <li className={styles.ListItem}>Our Events</li>
+          <li className={styles.ListItem}>Contact Us</li>
         </ul>
       </div>
 
@@ -31,7 +29,6 @@ function Footer() {
         <ul>
           <li className={styles.ListItem}>Contact Us</li>
           <li className={styles.ListItem}>Site Map</li>
-          <li className={styles.ListItem}>XML Sitemap</li>
         </ul>
         <div className={styles.SocialContainer}>
           <div className={styles.SocialIcon}>

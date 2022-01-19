@@ -8,9 +8,9 @@ const Contact = () => {
           <div className="row">
             <div className="col-12">
               <h2 className="text-center">Contact Us</h2>
-              <div className="title-border">
+              {/* <div className="title-border">
                 <span></span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -195,7 +195,7 @@ const Contact = () => {
                     <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.4765683308688!2d73.51952261487844!3d17.532482787991835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc20628f62d7d99%3A0xc04dfd0f00cf52cd!2sStudents%20Tutorial!5e0!3m2!1sen!2sin!4v1642522536115!5m2!1sen!2sin"
                     width="300"
-                    height="300"
+                    height="500"
                     allowfullscreen=""
                     loading="lazy"
                     ></iframe>

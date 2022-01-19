@@ -6,6 +6,7 @@ import CourseCardWrapper from "./CourseCardWrapper";
 import Footer from './Footer';
 import GalleryContainer from './GalleryContainer';
 import Contact from './Contact';
+import TestimonialCard from './TestimonialCard';
 
 function Home() {
     const [counter, setCounter] = useState(0);
@@ -38,7 +39,13 @@ function Home() {
         <CourseCardWrapper />
         <CarouselTestimonial />
         <GalleryContainer />
+        {/* <TestimonialCard/> */}
         <Contact />
+        {/* <DetailsCardWrapper />
+        <CourseCardWrapper />
+        <CarouselTestimonial />
+        <GalleryContainer />
+        <Contact /> */}
         <img
           src="/bx-up-arrow-alt.svg"
           onClick={scrollToTop}

@@ -9,7 +9,8 @@ section {
     margin-bottom: 5px;
     color: #333;
     line-height: 1.2;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
+    text-transform: uppercase;
 }
 
 .title-border {
@@ -30,7 +31,7 @@ section {
 
 #address {
     background: #f6f6f6;
-    box-shadow: 0 5px 30px rgb(41 41 59 / 20%);
+    /* box-shadow: 0 5px 30px rgb(41 41 59 / 20%); */
     padding: 80px 0;
     margin-bottom: 80px;
     margin-top: 2rem;
@@ -177,11 +178,23 @@ section {
     color: #a82682;
 }
 
-.google-maps{
-    height: 40rem;
-    width: 28rem;
-}
+@media (max-width: 450px){
+    .form-style{
+      width: 100%;
+    }
 
-/* @media (min-width: 430px){
-    .form-style
-} */
+    #EnquiryAddress,#EnquiryRemark{
+       width: 100%;
+    }
+
+    .form-btn{
+        width: 100%;
+    }
+
+    #address{
+        padding: 20px 10px;
+    }
+    #address ul li{
+        margin-bottom: 3rem;
+    }
+}

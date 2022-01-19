@@ -8,23 +8,23 @@ import "../Style/TestimonialCard.css";
 import LeftArrow from "../assets/left-arrow.svg";
 import RightArrow from "../assets/right-arrow.svg";
 
-const SamplePrevArrow = ({ currentSlide, slideCount, ...props }) => (
-  <img
-    className="testimonial-prevArrow"
-    src={LeftArrow}
-    alt="prevArrow"
-    {...props}
-  />
-);
+// const SamplePrevArrow = ({ currentSlide, slideCount, ...props }) => (
+//   <img
+//     className="testimonial-prevArrow"
+//     src={LeftArrow}
+//     alt="prevArrow"
+//     {...props}
+//   />
+// );
 
-const SampleNextArrow = ({ currentSlide, slideCount, ...props }) => (
-  <img
-    className="testimonial-nextArrow"
-    src={RightArrow}
-    alt="nextArrow"
-    {...props}
-  />
-);
+// const SampleNextArrow = ({ currentSlide, slideCount, ...props }) => (
+//   <img
+//     className="testimonial-nextArrow"
+//     src={RightArrow}
+//     alt="nextArrow"
+//     {...props}
+//   />
+// );
 
 export default class CarouselTestimonial extends React.PureComponent {
   render() {
@@ -35,10 +35,10 @@ export default class CarouselTestimonial extends React.PureComponent {
       slidesToShow: 3,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 1000,
+      autoplaySpeed: 2000,
       pauseOnHover:true,
-      // nextArrow: <SampleNextArrow />,
-      // prevArrow: <SamplePrevArrow />,
+      nextArrow: false,
+      prevArrow: false,
       responsive: [
         {
           breakpoint: 1150,

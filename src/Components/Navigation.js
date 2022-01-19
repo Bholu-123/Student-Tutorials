@@ -30,12 +30,7 @@ function Navbar() {
       <nav className="navbar">
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            <h2>
-              <span>
-                STUDENTS
-              </span>
-              TUTORIALS
-            </h2>
+            <img className="logo-img" src="./logo.png" />
           </Link>
 
           <div className="menu-icon" onClick={handleClick}>
@@ -45,7 +40,7 @@ function Navbar() {
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             {/* <li className="nav-item sidebar-logo">
               <Link to="/" class="sidebar-logo-text" onClick={closeMobileMenu}>
-                TUTORIALS
+                <img className="sidebar-logo-img" src="./logo.png" />
               </Link>
             </li> */}
 
@@ -63,7 +58,7 @@ function Navbar() {
 
             <li className="nav-item">
               <Link
-                to="/faculty"
+                to="/courses"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
@@ -73,7 +68,7 @@ function Navbar() {
 
             <li className="nav-item">
               <Link
-                to="/services"
+                to="/gallery"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
