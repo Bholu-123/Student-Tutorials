@@ -1,9 +1,6 @@
 import React from "react";
 import DetailsCard from "./DetailsCard";
 import "../Style/DetailsCardWrapper.css";
-import image1 from "../assets/img1.jpg";
-import image2 from "./../assets/img2.jpg";
-import image3 from "./../assets/img3.jpg";
 
 function DetailsCardWrapper() {
     // const [data, setData] = React.useState([
@@ -15,12 +12,26 @@ function DetailsCardWrapper() {
     // ]);
 
     const dummyData = [
-        {image: image1,title: "Highly structured content",para: "card must look like this means Each card content an image of full width of card,heading and Paragraph"},
-        {image: image2,title: "Highly structured content",para: "card must look like this means Each card content an image of full width of card,heading and Paragraph"},
-        {image: image3,title: "Highly structured content",para: "card must look like this means Each card content an image of full width of card,heading and Paragraph"},
-        {image: image2,title: "Highly structured content",para: "card must look like this means Each card content an image of full width of card,heading and Paragraph"},
-        {image: image3,title: "Highly structured content",para: "card must look like this means Each card content an image of full width of card,heading and Paragraph"},
-        {image: image1,title: "Highly structured content",para: "card must look like this means Each card content an image of full width of card,heading and Paragraph"},
+      {
+        image: "./1.jpg",
+        title: "WELL-CURATED STUDY MATERIAL",
+        para: "Our experienced faculty strive hard for extensive coverage of all courses in the form of lectures, study material and tests to ensure that students cover everything.",
+      },
+      {
+        image: "./2.jpg",
+        title: "EXPERIENCED FACULTY",
+        para: "Our faculty add experience and value to student’s learning constantly with advanced teaching techniques and quick doubt clarification.",
+      },
+      {
+        image: "./3.jpg",
+        title: "NETWORK OF SUCCESS",
+        para: "Strongly networked community of successful students; Ex-students help our students build connections and offer career guidance.",
+      },
+      {
+        image: "./4.jpg",
+        title: "TESTS & ASSESSMENT",
+        para: "Our topic-wise tests, major-tests and rigourous feedback mechanism help the students to know their level of understanding",
+      },
     ];
     return (
         <div className="details-container">
@@ -29,10 +40,10 @@ function DetailsCardWrapper() {
                 {dummyData.map((element)=>{
                     return (
                         <DetailsCard
-                        image={element.image}
-                        title={element.title}
-                        para={element.para}
-                    />
+                          image={element.image}
+                          title={element.title}
+                          para={element.para}
+                        />
                     )
                 })
                 }

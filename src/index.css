@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: rgba(243, 226, 226, 0.418) !important;
+  background-color: white !important;
+  width: 100%;
 }
 

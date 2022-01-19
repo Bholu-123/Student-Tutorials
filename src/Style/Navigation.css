@@ -1,12 +1,12 @@
 .navbar {
-    background: linear-gradient(
-        -90deg, #02203c, #001528);;
+    background: white;
     z-index: 999;
     width:100%;
-    position: absolute;
 }
 
 .navbar-container {
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,14 +16,23 @@
     z-index: 1000;
 }
 
-.navbar-logo {
-    color: #fff;
+.navbar-logo{
+    color: black;
     margin-left: 2rem;
     cursor: pointer;
     text-decoration: none;
     font-size: 3rem;
     position: relative;
     top: 0;
+}
+
+.navbar-logo h2{
+    font-size: 2.5rem;
+}
+
+.navbar-logo span{
+    color:#a82682;
+    margin-right: .5rem;
 }
 
 .fa-typo3 {
@@ -48,7 +57,7 @@
 }
 
 .nav-links {
-    color: #fff;
+    color: black;
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -58,12 +67,13 @@
 }
 
 .nav-links:hover {
-    border-bottom: 4px solid orange;
+    border-bottom: 4px solid #a82682;
+    color: #a82682;
     transition: all 0.2s ease-out;
 }
 
 .fa-bars {
-   color: #fff;
+   color: black;
 }
 
 .nav-links-mobile {
@@ -74,7 +84,7 @@
   display: none;
 }
 
-.sign-up-btn{
+/* .sign-up-btn{
    color: white;
    background-color: transparent;
    border: 1px solid red;
@@ -82,17 +92,14 @@
    margin-right: 1.5rem;
    padding: 1rem 1.5rem;
    font-size: 1.8rem;
-}
+} */
 
-.sidebar-logo{
+/* .sidebar-logo{
     display: none;
-}
+} */
 
 @media screen and (max-width: 960px) {
-    /* .NavbarItems {
-       position: relative;
-    } */
-    .sidebar-logo{
+    /* .sidebar-logo{
         display: block;
         border-bottom: 1px solid rgb(212, 15, 15);
         display: block;
@@ -112,7 +119,7 @@
         top: 1.2rem;
         right: 0px;
         font-size: 2rem;
-    }
+    } */
 
     .nav-menu {
         display: flex;
@@ -133,8 +140,9 @@
     }
 
     .nav-menu.active {
-        background: #02203c;
+        background: #fff;
         left: 0;
+        top: 9vh;
         opacity: 1;
         transition: all 0.5s ease;
     }
@@ -144,13 +152,13 @@
         padding: 1rem;
         width: 100%;
         display: table;
-        font-size: 1.2em;
+        font-size: 2rem;
     }
 
     .nav-links:hover {
-        background-color: #fff;
-        color: #242424;
-        border-radius: 0;
+        border-bottom: 4px solid #a82682;
+        color: #a82682;
+        transition: all 0.2s ease-out;
     }
 
     .navbar-logo {
@@ -169,18 +177,18 @@
     }
 
     .fa-times {
-        color: #fff;
-        font-size: 2rem;
+        color: black;
+        font-size: 3rem;
     }
 
-    .nav-links-mobile {
+    /* .nav-links-mobile {
         display: block;
         text-align: center;
         margin: 2rem auto;
         border-radius: 4px;
         width: 80%;
         text-decoration: none;
-        font-size: 1.5rem;
+        font-size: 2rem;
         background-color: transparent;
         color: #fff;
         padding: 14px 20px;
@@ -189,10 +197,20 @@
     }
 
     .nav-links-mobile:hover {
+        border-bottom: 4px solid #a82682;
+        color: #a82682;
+        transition: all 0.2s ease-out;
+    } */
+
+    /* .nav-links-mobile:hover {
         background: #fff;
         color: #242424;
         transition: 250ms;
-    }
+        -webkit-transition: 250ms;
+        -moz-transition: 250ms;
+        -ms-transition: 250ms;
+        -o-transition: 250ms;
+} */
 }
 
 @media screen and (max-width: 768px) {
@@ -206,16 +224,11 @@
 }
 
 @media screen and (max-width: 500px) {
-
-    .sign-up-btn{
-        margin-right: 1rem;
-        padding: 1rem 1rem;
-        font-size: 1.5rem;
-     }
      .menu-icon {
         position: absolute;
         top: 15px;
         left: 10px;
+        font-size: 2.5rem;
     }
 
 }
@@ -223,10 +236,8 @@
 @media screen and (max-width: 425px) {
     .navbar-logo {
         position: absolute;
-        top: 15px;
-        left: 15%;
-        font-size: 3rem;
+        top: 20px;
+        left: 12%;
+        font-size: 2rem;
     }
 }
-
-

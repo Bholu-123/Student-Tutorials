@@ -1,0 +1,187 @@
+section {
+    padding: 60px 0;
+}
+
+.text-center{
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #333;
+    line-height: 1.2;
+    font-size: 2.5rem;
+}
+
+.title-border {
+    width: 130px;
+    height: 1px;
+    margin: 10px auto 30px;
+    background-color: #e1e1e1;
+    display: block;
+}
+
+.title-border span {
+    width: 60px;
+    height: 2px;
+    margin: auto;
+    background-color: #a82682;
+    display: block;
+}
+
+#address {
+    background: #f6f6f6;
+    box-shadow: 0 5px 30px rgb(41 41 59 / 20%);
+    padding: 80px 0;
+    margin-bottom: 80px;
+    margin-top: 2rem;
+}
+
+#address .container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#address .row{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+#address .col-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px
+}
+
+#address ul {
+    text-align: center;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#address ul li {
+    margin: 0 20px;
+    text-align: left;
+    line-height: 26px;
+    color: #333;
+    font-size: 15px;
+    list-style: none;
+    display: flex;
+}
+
+#address .add-icon {
+    width: 70px;
+    vertical-align: top;
+    display: inline-block;
+    text-align: left;
+    margin-right: 1rem;
+}
+
+#address .add-icon i {
+    font-size: 70px;
+    display: inline-block;
+    color: #a82682;
+}
+
+#address .add-text {
+    font-size: 17px;
+}
+
+#address .add-text span {
+    font-weight: bold;
+    font-size: 22px;
+    margin-top: 1rem;
+}
+
+.fa-phone {
+    margin-left: -1rem;
+}
+
+.contactForm-container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.formLabel{
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    font-weight: bold;
+    display: block;
+}
+
+.form-style{
+    width: 80%;
+    border: none;
+    outline: none;
+    border: 1px solid #ccc;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.form-style:focus{
+    border-color: #a82682;
+}
+
+#form form .row{
+    margin-bottom: 1.5rem;
+}
+
+#EnquiryAddress,#EnquiryRemark{
+    width: 92%;
+}
+
+.form-btn{
+  background-color: #a82682;
+  width: 27rem;
+  margin: auto;
+    color: white;
+    padding: 9px 20px;
+    -webkit-box-shadow: 1px 11px 20px 0px rgb(233 179 14 / 12%);
+    box-shadow: 1px 11px 20px 0px rgb(233 179 14 / 12%);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+
+
+.form-btn:hover{
+    border: 2px solid  #a82682;
+    background-color: #fff;
+    color: #a82682;
+}
+
+.google-maps{
+    height: 40rem;
+    width: 28rem;
+}
+
+/* @media (min-width: 430px){
+    .form-style
+} */

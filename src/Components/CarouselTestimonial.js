@@ -1,19 +1,29 @@
-import React from 'react'
-import TestimonialCard from './TestimonialCard';
-import "slick-carousel/slick/slick.css"; 
+import React from "react";
+import TestimonialCard from "./TestimonialCard";
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { NavLink as Link } from "react-router-dom";
 import Slider from "react-slick";
-import '../Style/TestimonialCard.css';
-import LeftArrow from "../assets/left-arrow.svg"
-import RightArrow from "../assets/right-arrow.svg"
+import "../Style/TestimonialCard.css";
+import LeftArrow from "../assets/left-arrow.svg";
+import RightArrow from "../assets/right-arrow.svg";
 
 const SamplePrevArrow = ({ currentSlide, slideCount, ...props }) => (
-  <img className="testimonial-prevArrow" src={LeftArrow} alt="prevArrow" {...props} />
+  <img
+    className="testimonial-prevArrow"
+    src={LeftArrow}
+    alt="prevArrow"
+    {...props}
+  />
 );
 
 const SampleNextArrow = ({ currentSlide, slideCount, ...props }) => (
-  <img className="testimonial-nextArrow" src={RightArrow} alt="nextArrow" {...props} />
+  <img
+    className="testimonial-nextArrow"
+    src={RightArrow}
+    alt="nextArrow"
+    {...props}
+  />
 );
 
 export default class CarouselTestimonial extends React.PureComponent {
@@ -24,52 +34,58 @@ export default class CarouselTestimonial extends React.PureComponent {
       speed: 500,
       slidesToShow: 3,
       slidesToScroll: 1,
-      nextArrow: <SampleNextArrow />,
-      prevArrow: <SamplePrevArrow />,
+      autoplay: true,
+      autoplaySpeed: 1000,
+      pauseOnHover:true,
+      // nextArrow: <SampleNextArrow />,
+      // prevArrow: <SamplePrevArrow />,
       responsive: [
         {
           breakpoint: 1150,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 1,
-          }
+          },
         },
         {
           breakpoint: 760,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-          }
+          },
         },
-      ]
+      ],
     };
 
     return (
       <div className="carousel-testimonial-container">
-        <h2 className="carousel-testimonial-title">Over 9000 Satisfied Students</h2>
+        <h2 className="carousel-testimonial-title">Testimonials</h2>
+        <div className="testimonials-title-border">
+          <span></span>
+        </div>
         <Slider {...settings} className="testimonial-card-wrapper">
-            <div>
-              <TestimonialCard/>
-            </div>
-            <div>
-              <TestimonialCard/>
-            </div>
-            <div>
-              <TestimonialCard/>
-            </div>
-            <div>
-              <TestimonialCard/>
-            </div>
-            <div>
-              <TestimonialCard/>
-            </div>
-            <div>
-              <TestimonialCard/>
-            </div>
+          <div>
+            <TestimonialCard />
+          </div>
+          <div>
+            <TestimonialCard />
+          </div>
+          <div>
+            <TestimonialCard />
+          </div>
+          <div>
+            <TestimonialCard />
+          </div>
+          <div>
+            <TestimonialCard />
+          </div>
+          <div>
+            <TestimonialCard />
+          </div>
         </Slider>
-        <Link to='/allTestimonials' className='read-testimonials-btn'>
-            Read More Testimonials
-        </Link>
+        {/* <Link to="/allTestimonials" className="read-testimonials-btn">
+          Read More Testimonials
+        </Link> */}
       </div>
     );
   }

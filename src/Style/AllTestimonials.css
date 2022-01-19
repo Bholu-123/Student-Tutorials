@@ -24,7 +24,7 @@
     margin-top: 5rem;
     text-decoration: none;
     font-size: 2rem;
-    background-color:#626ee3;
+    background-color:#a82682;
     padding: 1rem;
     color: white;
     border-radius: 5px;
@@ -105,3 +105,18 @@
     
 }
 
+.testimonials-title-border{
+    width: 130px;
+    height: 1px;
+    margin: 10px auto 30px;
+    background-color: #e1e1e1;
+    display: block;
+}
+
+.testimonials-title-border span{
+    width: 60px;
+    height: 2px;
+    margin: auto;
+    background-color: #a82682;
+    display: block;
+}

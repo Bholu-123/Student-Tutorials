@@ -1,5 +1,5 @@
 .details-card{
-    width: 30rem;
+    width: 300px;
     min-height: max-content;
     margin: 2rem;
     padding: 1.5rem;
@@ -24,17 +24,22 @@
 }
 
 .details-card .details-card-image{
-    width:100%;
+    width: 200px;
+    height: 200px;
     height: 16rem;
-    color: #626ee3;
-    object-fit: cover;
+    color: #a82682;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+    margin: auto;
 }
 
 .details-card .card-title{
     align-content: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 400;
-    text-align: left;
+    text-align: center;
     margin-bottom: 1rem;
     margin-top: 1.5rem;
     font-weight: bold;
@@ -42,6 +47,7 @@
 }
 .details-card .card-para{
     font-weight: normal;
+    text-align: center;
     font-size: 1.5rem;
     color :#445d6e;
     margin-left: auto;

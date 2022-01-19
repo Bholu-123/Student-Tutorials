@@ -1,6 +1,6 @@
 .details-container{
     margin-top: 3rem;
-    width: 80%;
+    width: 100%;
     margin-left:auto;
     margin-right:auto;
 }
@@ -22,7 +22,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3.5rem;
+    font-size: 3rem;
 }
 
 .details-card-wrapper{
