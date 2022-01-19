@@ -5,12 +5,12 @@ import '../Style/CourseCard.css';
 function CourseCardWrapper() {
     const dummyData = [
       {
-        image: "./Classes/DSC_6607.JPG",
+        image: "/Classes/DSC_6607.jpg",
         title: "SSC",
         para: "These batch is specially designed for average students who need help in their study in daily basis. Here we cover the syllabus with moderate speed and all subjects are coved in these batch. ",
       },
       {
-        image: "./Classes/DSC_6603.JPG",
+        image: "/Classes/DSC_6603.jpg",
         title: "For 8th and 9th std",
         para: "These batch is for 8th and 9th std those who need self study more rather then daily packed schedule,classes are conducted only 2 days a week during regular school days and students get enough time for self study.",
       },
