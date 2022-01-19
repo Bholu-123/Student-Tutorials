@@ -5,16 +5,16 @@ import '../Style/Gallery.css';
 const GalleryContainer = () => {
     const dummyData = [
       {
-        image: "./Classes/DSC_6607.JPG",
+        image: "./Classes/DSC_6607.jpg",
         title: "Classroom",
       },
       {
-        image: "./Classes/DSC_6607.JPG",
+        image: "./Classes/DSC_6607.jpg",
         title: "Events",
       },
 
       {
-        image: "./Classes/DSC_6627.JPG",
+        image: "./Classes/DSC_6627.jpg",
         title: "Celebrations",
       },
     ];

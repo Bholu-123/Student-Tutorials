@@ -7,23 +7,23 @@ const GalleryClasses = () => {
       <h1>Our Classroom</h1>
       <div className="classroom-gallery-content">
         <div class="classroom-gallery">
-          <img src="./Classes/DSC_2021.JPG" alt="Image"/>
+          <img src="./Classes/DSC_2021.jpg" alt="Image"/>
           <h2>Classroom</h2>
         </div>
         <div class="classroom-gallery">
-          <img src="./Classes/DSC_6592.JPG" alt="Image"/>
+          <img src="./Classes/DSC_6592.jpg" alt="Image"/>
           <h2>Classroom</h2>
         </div>
         <div class="classroom-gallery">
-          <img src="./Classes/DSC_6603.JPG" alt="Image"/>
+          <img src="./Classes/DSC_6603.jpg" alt="Image"/>
           <h2>Classroom</h2>
         </div>
         <div class="classroom-gallery">
-          <img src="./Classes/DSC_6607.JPG" alt="Image"/>
+          <img src="./Classes/DSC_6607.jpg" alt="Image"/>
           <h2>Classroom</h2>
         </div>
         <div class="classroom-gallery">
-          <img src="./Classes/DSC_0270.JPG" alt="Image"/>
+          <img src="./Classes/DSC_0270.jpg" alt="Image"/>
           <h2>Classroom</h2>
         </div>
       </div>
