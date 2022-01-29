@@ -52,11 +52,11 @@ const Faq = (props) => {
       <div className="faq-container">
         <h2 className="faq-heading">Frequently asked questions</h2>
         {/* <Searchbar onSearchChange={handleSearchChange} /> */}
-        <section className="faq">
+        <div className="faq">
           {searchResults.map((item) => (
             <Question question={item.question} answer={item.answer} />
           ))}
-        </section>
+        </div>
       </div>
     </div>
   );

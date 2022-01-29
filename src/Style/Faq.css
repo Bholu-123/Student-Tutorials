@@ -91,11 +91,12 @@
 
 .question h3{
     font-size: 3rem;
+    color: #fff;
 }
 .question svg {
   width: 2.5rem;
   height: 2.5rem;
-  fill: #9EA6AE;
+  fill: #fff;
   transition: .5s linear;
   -webkit-transition: .5s linear;
   -moz-transition: .5s linear;
@@ -139,6 +140,8 @@ button:focus {
 .answer.active p{
     font-size: 2rem;
     color: white;
+    height: 100px;
+    overflow: auto;
 }
 @keyframes slidein {
   from {
@@ -149,4 +152,28 @@ button:focus {
     opacity: 1;
     transform: translateY(0%);
   }
+}
+
+@media(max-width:850px){
+    .faq-container{
+        width: 90%;
+    }
+
+    .faq-container h2{
+        font-size: 3rem;
+    }
+
+    .answer.active p{
+        font-size: 1.5rem;
+    }
+
+    .question h3{
+        font-size: 2rem;
+    }
+}
+
+@media(max-width: 470px){
+    .faq-container{
+        width: 100vw;
+    }
 }
