@@ -101,8 +101,10 @@
   line-height: 1.5;
   margin-bottom: 1.25rem;    
   font-weight: 400;
-  height: 200px;
-  overflow: hidden;
+  max-height: 100px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   flex: 1;
 }
 
@@ -219,7 +221,7 @@
     -o-transform: translate(-50%,-50%);
 }
 
-@media(max-width: 425px){
+@media(max-width: 768px){
     .course-card{
         width: 90vw;
         margin: auto;

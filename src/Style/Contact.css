@@ -178,7 +178,7 @@ section {
     color: #a82682;
 }
 
-@media (max-width: 450px){
+@media (max-width: 768px){
     .form-style{
       width: 100%;
     }
