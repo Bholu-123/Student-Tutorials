@@ -1,6 +1,6 @@
-/* .course-ssc{
+.course-ssc{
     padding: 5rem 1rem;
-} */
+}
 
 .course-ssc h2{
     text-align: center;
@@ -71,6 +71,8 @@
 
 .batch-card{
     width: 35rem;
+    height: 25rem;
+    overflow-y: auto;
     margin: 2rem;
     padding: 2rem;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -98,7 +100,8 @@
 
 .batch-card p{
     font-size: 2rem;
-
+    /* height: 150px;
+    overflow-y: auto; */
 }
 
 .shedule_table{

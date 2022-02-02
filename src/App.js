@@ -22,7 +22,6 @@ const App = () => {
       <Banner />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/about" exact component={About} />
         <Route path="/gallery" exact component={GalleryContainer} />
         <Route path="/contact" exact component={Contact} />
         <Route path="/SSC" exact component={CourseSsc} />
