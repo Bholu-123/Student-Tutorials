@@ -32,7 +32,7 @@
   height: 40px;
   border-radius: 50%;
   color: white;
-  background-color: #a82682;
+  background-color: #fcba03;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,7 +79,7 @@
 }
 
 .ListItem:hover{
-    color: #a82682;
+    color: #fcba03;
 }
 
 .Payment {

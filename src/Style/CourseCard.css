@@ -106,6 +106,10 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   flex: 1;
+ display: -webkit-box !important;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  white-space: normal;
 }
 
 .course-card-link{
@@ -122,11 +126,11 @@
 }
 
 .course-card-link:hover{
-    color: #a82682;
+    color: #fcba03;
 }
 
 .course-card-btn{
-    background-color: #a82682;
+    background-color: #fcba03;
     color: white;
     padding: 9px 20px;
     -webkit-box-shadow: 1px 11px 20px 0px rgb(233 179 14 / 12%);
@@ -145,9 +149,9 @@
 
 
 .course-card-btn:hover{
-    border: 2px solid  #a82682;
+    border: 2px solid  #fcba03;
     background-color: #fff;
-    color: #a82682;
+    color: #fcba03;
 }
 
 
@@ -209,7 +213,7 @@
     width: 60px;
     height: 3px;
     margin: auto;
-    background-color: #a82682;
+    background-color: #fcba03;
     display: block;
     position: absolute;
     left: 50%;

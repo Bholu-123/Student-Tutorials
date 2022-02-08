@@ -24,7 +24,7 @@ const App = () => {
         <Route path="/" exact component={Home} />
         <Route path="/gallery" exact component={GalleryContainer} />
         <Route path="/contact" exact component={Contact} />
-        <Route path="/SSC" exact component={CourseSsc} />
+        <Route path="/SSC" exact component={CourseSsc}/>
         <Route path="/ClassroomGallery" exact component={GalleryClasses} />
         <Route path="/EventsGallery" exact component={GalleryEvents} />
         <Route

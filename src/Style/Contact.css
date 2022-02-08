@@ -1,5 +1,7 @@
 section {
     padding: 60px 0;
+    width: 90%;
+    margin: auto;
 }
 
 .text-center{
@@ -25,7 +27,7 @@ section {
     width: 60px;
     height: 2px;
     margin: auto;
-    background-color: #a82682;
+    background-color: #fcba03;
     display: block;
 }
 
@@ -97,7 +99,7 @@ section {
 #address .add-icon i {
     font-size: 70px;
     display: inline-block;
-    color: #a82682;
+    color: #fcba03;
 }
 
 #address .add-text {
@@ -140,7 +142,7 @@ section {
 }
 
 .form-style:focus{
-    border-color: #a82682;
+    border-color: #fcba03;
 }
 
 #form form .row{
@@ -152,7 +154,7 @@ section {
 }
 
 .form-btn{
-  background-color: #a82682;
+  background-color: #fcba03;
   width: 27rem;
   margin: auto;
     color: white;
@@ -173,9 +175,9 @@ section {
 
 
 .form-btn:hover{
-    border: 2px solid  #a82682;
+    border: 2px solid  #fcba03;
     background-color: #fff;
-    color: #a82682;
+    color: #fcba03;
 }
 
 @media (max-width: 768px){

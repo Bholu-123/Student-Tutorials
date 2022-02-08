@@ -7,7 +7,7 @@ function CourseCardWrapper() {
       {
         image: "/Classes/DSC_6607.jpg",
         title: "SSC",
-        para: "These batch is specially designed for average students who need help in their study in daily basis. Here we cover the syllabus with moderate speed and all subjects are coved in these batch. ",
+        para: "These batches are specially designed to take all subjects of Maharashtra S.S.C. and  CBSE in our classes with separate faculty for each subject. Our schedule is so planned , that we work on motto “Early syllabus completion, More time for revision ",
       },
       {
         image: "/Classes/DSC_6603.jpg",

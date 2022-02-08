@@ -113,7 +113,7 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="row">
+                  {/* <div className="row">
                     <div className="col-md-12 form-item">
                       <p className="formLabel">Place of Residence</p>
                       <textarea
@@ -125,9 +125,9 @@ const Contact = () => {
                         required="required"
                       ></textarea>
                     </div>
-                  </div>
+                  </div> */}
 
-                  <div className="row justify-content-start">
+                  {/* <div className="row justify-content-start">
                     <div className="col-md-4 col-xs-12 form-item">
                       <select
                         name="branch-id"
@@ -165,10 +165,10 @@ const Contact = () => {
                         <option value="Math">MATHEMATICS</option>
                       </select>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="row">
                     <div className="col-md-12 form-item">
-                      <p className="formLabel">Remarks</p>
+                      <p className="formLabel">Your Message</p>
                       <textarea
                         name="remark"
                         className="form-style"
@@ -194,8 +194,8 @@ const Contact = () => {
                 <div className="google-maps">
                     <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.4765683308688!2d73.51952261487844!3d17.532482787991835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc20628f62d7d99%3A0xc04dfd0f00cf52cd!2sStudents%20Tutorial!5e0!3m2!1sen!2sin!4v1642522536115!5m2!1sen!2sin"
-                    width="300"
-                    height="500"
+                    width="280"
+                    height="350"
                     allowfullscreen=""
                     loading="lazy"
                     ></iframe>

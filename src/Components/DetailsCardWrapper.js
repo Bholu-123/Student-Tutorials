@@ -15,22 +15,22 @@ function DetailsCardWrapper() {
       {
         image: "./1.jpg",
         title: "WELL-CURATED STUDY MATERIAL",
-        para: "Our experienced faculty strive hard for extensive coverage of all courses in the form of lectures, study material and tests to ensure that students cover everything.",
+        para: "Provision of highly structured content to the students. Content delivery in a systematic and easy way",
       },
       {
         image: "./2.jpg",
-        title: "EXPERIENCED FACULTY",
-        para: "Our faculty add experience and value to student’s learning constantly with advanced teaching techniques and quick doubt clarification.",
+        title: "SPECIALIZED FACULTY TEAM",
+        para: "Strong team of faculties specialized in their subject to teach the students in a curated style so that they could get the optimum result",
       },
       {
         image: "./3.jpg",
-        title: "NETWORK OF SUCCESS",
-        para: "Strongly networked community of successful students; Ex-students help our students build connections and offer career guidance.",
+        title: "COMPETITIVE ENVIRONMENT",
+        para: "There is a highly competitive environment for the students so that they could get motivated and work hard to achieve more",
       },
       {
         image: "./4.jpg",
         title: "TESTS & ASSESSMENT",
-        para: "Our topic-wise tests, major-tests and rigourous feedback mechanism help the students to know their level of understanding",
+        para: "Carefully curated  assessments to reflect what a real day of exam might look like, filled with variety and appropriate difficulty",
       },
     ];
     return (

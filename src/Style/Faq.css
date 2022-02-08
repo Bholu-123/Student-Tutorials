@@ -33,7 +33,7 @@
 
 
 .faq-container h2{
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 .faq-form {
@@ -78,6 +78,10 @@
   margin: 0 auto;
   padding: 1rem;
   transition: 1s;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
 }
 
 .question {
@@ -90,7 +94,7 @@
 }
 
 .question h3{
-    font-size: 3rem;
+    font-size: 2rem;
     color: #fff;
 }
 .question svg {

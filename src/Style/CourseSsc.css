@@ -50,7 +50,7 @@
 }
 
 .ssc-nav-item:hover  .svg-box{
-    background-color: #a82682;
+    background-color: #fcba03;
 }
 
 .ssc-nav-item span{
@@ -58,7 +58,7 @@
 }
 
 .ssc-nav-item:hover span{
-    color: #a82682;
+    color: #fcba03;
 }
 
 .batch-card-container{
@@ -95,7 +95,7 @@
     font-size:2.5rem;
     text-align:  center;
     margin: 1.5rem;
-    color: #a82682;
+    color: #fcba03;
 }
 
 .batch-card p{
@@ -125,7 +125,7 @@
 }
 
 .shedule_table__header{
-    background-color: #a82682;
+    background-color: #fcba03;
     color:white;
     border-bottom: 2px solid #ffff;
 }
@@ -147,7 +147,7 @@
 .batch-container h1{
     text-align: center;
     margin-bottom: 1.5rem;
-    color: #a82682;
+    color: #fcba03;
 }
 
 .table-container{
