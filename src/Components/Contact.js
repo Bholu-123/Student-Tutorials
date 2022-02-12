@@ -108,7 +108,7 @@ const Contact = () => {
                         type="text"
                         id="FirstName"
                         required="required"
-                        value={state['first-name']}
+                        value={state["first-name"]}
                         onChange={handleInputChange}
                       />
                     </div>
@@ -121,7 +121,7 @@ const Contact = () => {
                         type="text"
                         id="LastName"
                         required="required"
-                        value={state['last-name']}
+                        value={state["last-name"]}
                         onChange={handleInputChange}
                       />
                     </div>
@@ -182,7 +182,7 @@ const Contact = () => {
                         <option value="1">Head Office - Chiplun</option>
                       </select>
                     </div> */}
-                    <div className="col-md-6 col-xs-12 form-item">
+                    <div className="col-md-6 col-xs-12 form-item required">
                       <select
                         name="edu-medium"
                         className="form-style"
@@ -197,7 +197,7 @@ const Contact = () => {
                         <option value="Hindi Medium">Hindi Medium</option>
                       </select>
                     </div>
-                    <div className="col-md-6 col-xs-12 form-item">
+                    <div className="col-sm-6 col-xs-12 form-item required">
                       <select
                         name="courses"
                         className="form-style"
@@ -206,10 +206,10 @@ const Contact = () => {
                         value={state["courses"]}
                         onChange={handleInputChange}
                       >
-                        <option value="">Select Course</option>
-                        <option value="S.S.C.">S.S.C.</option>
-                        <option value="SCIENCE">SCIENCE</option>
-                        <option value="Math">MATHEMATICS</option>
+                        <option value="">Select standard</option>
+                        <option value="8th">8th</option>
+                        <option value="9th">9th</option>
+                        <option value="10th">10th</option>
                       </select>
                     </div>
                   </div>

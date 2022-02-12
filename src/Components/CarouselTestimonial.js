@@ -21,7 +21,7 @@ const dummyData = [
   },
   {
     image: "/yash Shirke.png",
-    Name: "yash Shirke",
+    Name: "Yash Shirke",
     para: "Most important lesson of life i learn here is, preparation is always key to success rather then to wait till declaration of exam dates here teachers always guide how you should utilise your time in studys.",
   },
   {
