@@ -4,13 +4,13 @@ import "../Style/Gallery.css";
 
 const Gallery = ({image, title}) => {
     return (
-      <div class="gallery-card-content">
+      <div className="gallery-card-content">
         <div className="galley-card-imgBox">
-          <img class="gallery-card-image" src={image} alt="" />
+          <img className="gallery-card-image" src={image} alt="" />
         </div>
-        <div class="gallery-card-text">
-          <h2 class="gallery-card-title">{title}</h2>
-          <button class="gallery-card-btn card-btn">
+        <div className="gallery-card-text">
+          <h2 className="gallery-card-title">{title}</h2>
+          <button className="gallery-card-btn card-btn">
             <Link className="gallery-card-link" to={`/${title}Gallery`}>
               View All
             </Link>

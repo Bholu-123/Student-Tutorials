@@ -41,8 +41,8 @@ const CourseSscBody = ({type}) => {
           <div className="batch-container">
             <h1 className="test-header">Test Series</h1>
             <div className="table-container-testSeries">
-               <table class="shedule_table">
-                  <tr class="shedule_table__header">
+               <table className="shedule_table">
+                  <tr className="shedule_table__header">
                     <th>Sessions</th>
                     <th>1st term</th>
                     <th>Mid term</th>
@@ -94,8 +94,8 @@ const CourseSscBody = ({type}) => {
             <div className="batch-container">
               <h1>Vacation Cum Regular Batch</h1>
               <div className="table-container">
-                <table class="shedule_table">
-                  <tr class="shedule_table__header">
+                <table className="shedule_table">
+                  <tr className="shedule_table__header">
                     <th>Sessions</th>
                     <th>
                       Summer vacation
@@ -152,8 +152,8 @@ const CourseSscBody = ({type}) => {
             <div className="batch-container">
               <h1>Vacation Batch</h1>
               <div className="table-container">
-                <table class="shedule_table">
-                  <tr class="shedule_table__header">
+                <table className="shedule_table">
+                  <tr className="shedule_table__header">
                     <th>Sessions</th>
                     <th>
                       Summer vacation

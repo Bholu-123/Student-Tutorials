@@ -1,34 +1,49 @@
 import React from "react";
 import styles from "../Style/Footer.module.css";
+import { NavLink as Link } from "react-router-dom";
 
 function Footer() {
   return (
     <div className={styles.Container}>
       <div className={styles.Left}>
-        <h3 className={styles.Title}>Company</h3>
+        <h3 className={styles.Title}>Institute</h3>
         <ul className={styles.List}>
-          <li className={styles.ListItem}>Home</li>
-          <li className={styles.ListItem}>About Us</li>
-          <li className={styles.ListItem}>Gallery</li>
-          <li className={styles.ListItem}>Corses</li>
+          <Link to="/" className={styles.footerLink}>
+            <li className={styles.ListItem}>Home</li>
+          </Link>
+          <Link to="/" className={styles.footerLink}>
+            <li className={styles.ListItem}>About Us</li>
+          </Link>
+          <Link to="/gallery" className={styles.footerLink}>
+            <li className={styles.ListItem}>Gallery</li>
+          </Link>
+          <Link to="/SSC" className={styles.footerLink}>
+            <li className={styles.ListItem}>Courses</li>
+          </Link>
         </ul>
       </div>
 
       <div className={styles.Center}>
         <h3 className={styles.Title}>Services</h3>
         <ul className={styles.List}>
-          <li className={styles.ListItem}>SSC batch</li>
-          <li className={styles.ListItem}>8th and 9th</li>
-          <li className={styles.ListItem}>Our Events</li>
-          <li className={styles.ListItem}>Contact Us</li>
+          <Link to="/SSC" className={styles.footerLink}>
+            <li className={styles.ListItem}>Courses</li>
+          </Link>
+          <Link to="/gallery" className={styles.footerLink}>
+            <li className={styles.ListItem}>Our Events</li>
+          </Link>
+          <Link to="/contact" className={styles.footerLink}>
+            <li className={styles.ListItem}>Contact Us</li>
+          </Link>
         </ul>
       </div>
 
       <div className={styles.Right}>
         <h3 className={styles.Title}>Get in touch</h3>
         <ul>
-          <li className={styles.ListItem}>Contact Us</li>
-          <li className={styles.ListItem}>Site Map</li>
+          <Link to="/contact" className={styles.footerLink}>
+            <li className={styles.ListItem}>Contact Us</li>
+          </Link>
         </ul>
         <div className={styles.SocialContainer}>
           <div className={styles.SocialIcon}>

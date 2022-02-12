@@ -1,18 +1,22 @@
 import React from 'react';
 import "../Style/Faq.css";
 
-const Question = (props) => {
-  const [isActive, setActive] = React.useState(false);
-  const handleClick = (id) => {
-    setActive(!isActive);
-  };
+const Question = ({ question, answer, setActiveIndex,activeIndex, index }) => {
   return (
     <div className="question-wrapper">
-      <div className="question" id={props.id}>
-        <h3>{props.question}</h3>
-        <button onClick={() => handleClick(props.id)}>
+      <div className="question" >
+        <h3>{question}</h3>
+        <button
+          onClick={() => {
+            if (activeIndex === index) {
+              setActiveIndex(-1);
+            } else {
+              setActiveIndex(index);
+            }
+          }}
+        >
           <svg
-            className={isActive ? "active" : ""}
+            className={index === activeIndex ? "active" : ""}
             viewBox="0 0 320 512"
             width="100"
             title="angle-down"
@@ -21,8 +25,8 @@ const Question = (props) => {
           </svg>
         </button>
       </div>
-      <div className={isActive ? "answer active" : "answer"}>
-        <p>{props.answer}</p>
+      <div className={index === activeIndex ? "answer active" : "answer"}>
+        <p>{answer}</p>
       </div>
     </div>
   );

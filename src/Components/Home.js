@@ -54,7 +54,7 @@ function Home() {
             right: "1.8rem",
             boderRadius: "10px",
             overflow: "hidden",
-            backgroundColor: "#fcba03",
+            backgroundColor: "#a82682",
             cursor: "pointer",
             display: visible ? "inline" : "none",
           }}

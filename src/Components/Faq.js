@@ -14,7 +14,7 @@ const questions = [
   {
     id: 2,
     question:
-      "How we are different from other coachings?Fix problems & request removals?",
+      "How we are different from other coachings?",
     answer:
       "Coaching for 2 to 3 subjects is not sufficient for overall good performance in boards. That’s why we provide coaching of each subject by professional  and experienced supervisions.",
   },
@@ -44,7 +44,8 @@ const Faq = (props) => {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-
+  const [activeIndex, setActiveIndex] = useState(-1);
+  
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -62,8 +63,8 @@ const Faq = (props) => {
         <h2 className="faq-heading">Frequently asked questions</h2>
         {/* <Searchbar onSearchChange={handleSearchChange} /> */}
         <div className="faq">
-          {searchResults.map((item) => (
-            <Question question={item.question} answer={item.answer} />
+          {searchResults.map((item,i) => (
+            <Question index={i} activeIndex={activeIndex} setActiveIndex={setActiveIndex} question={item.question} answer={item.answer} />
           ))}
         </div>
       </div>

@@ -1,7 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import  "../Style/Contact.css";
 
 const Contact = () => {
+  const [state,setState] = useState({
+    "first-name":"",
+    "last-name":"",
+    "email-address":"",
+    "contact-no":"",
+    "remark": "",
+    "edu-medium":"",
+    "courses":"",
+  })
+
+  const handleInputChange = (e) => {
+     const target = e.target;
+     var value = target.value;
+     const name = target.name;
+     
+     setState((prevState) => ({
+       ...prevState,
+       [name]: value
+     }));
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(state);
+    setState((prevState) => ({
+      ...prevState,
+      "first-name": "",
+      "last-name": "",
+      "email-address": "",
+      "contact-no": "",
+      "remark": "",
+      "edu-medium": "",
+      "courses": "",
+    }));
+  }
+
+
     return (
       <section id="contact-us">
         <div className="container">
@@ -54,11 +91,9 @@ const Contact = () => {
             <div id="contact-form" className="col-md-7 col-xs-12">
               <div id="form">
                 <form
-                  action="/contact-us"
+                  onSubmit={handleSubmit}
                   className="form-container"
                   id="EnquiryForm"
-                  method="post"
-                  accept-charset="utf-8"
                 >
                   <div style={{ display: "none" }}>
                     <input type="hidden" name="_method" value="POST" />
@@ -69,10 +104,12 @@ const Contact = () => {
                       <input
                         name="first-name"
                         className="form-style"
-                        maxlength="100"
+                        maxLength="100"
                         type="text"
                         id="FirstName"
                         required="required"
+                        value={state['first-name']}
+                        onChange={handleInputChange}
                       />
                     </div>
                     <div className="col-sm-6 col-xs-12 form-item required">
@@ -80,10 +117,12 @@ const Contact = () => {
                       <input
                         name="last-name"
                         className="form-style"
-                        maxlength="100"
+                        maxLength="100"
                         type="text"
                         id="LastName"
                         required="required"
+                        value={state['last-name']}
+                        onChange={handleInputChange}
                       />
                     </div>
                   </div>
@@ -94,10 +133,12 @@ const Contact = () => {
                       <input
                         name="contact-no"
                         className="form-style"
-                        maxlength="255"
+                        maxLength="255"
                         type="text"
                         id="ContactNo"
                         required="required"
+                        value={state["contact-no"]}
+                        onChange={handleInputChange}
                       />
                     </div>
                     <div className="col-sm-6 col-xs-12 form-item required">
@@ -105,10 +146,12 @@ const Contact = () => {
                       <input
                         name="email-address"
                         className="form-style"
-                        maxlength="255"
+                        maxLength="255"
                         type="text"
                         id="EmailAddress"
                         required="required"
+                        value={state["email-address"]}
+                        onChange={handleInputChange}
                       />
                     </div>
                   </div>
@@ -127,8 +170,8 @@ const Contact = () => {
                     </div>
                   </div> */}
 
-                  {/* <div className="row justify-content-start">
-                    <div className="col-md-4 col-xs-12 form-item">
+                  <div className="row justify-content-start">
+                    {/* <div className="col-md-4 col-xs-12 form-item">
                       <select
                         name="branch-id"
                         className="form-style"
@@ -138,13 +181,15 @@ const Contact = () => {
                         <option value="">Select Branch</option>
                         <option value="1">Head Office - Chiplun</option>
                       </select>
-                    </div>
-                    <div className="col-md-4 col-xs-12 form-item">
+                    </div> */}
+                    <div className="col-md-6 col-xs-12 form-item">
                       <select
                         name="edu-medium"
                         className="form-style"
                         id="EnquiryMedium"
                         required="required"
+                        value={state["edu-medium"]}
+                        onChange={handleInputChange}
                       >
                         <option value="">Select Medium</option>
                         <option value="English Medium">English Medium</option>
@@ -152,12 +197,14 @@ const Contact = () => {
                         <option value="Hindi Medium">Hindi Medium</option>
                       </select>
                     </div>
-                    <div className="col-md-4 col-xs-12 form-item">
+                    <div className="col-md-6 col-xs-12 form-item">
                       <select
                         name="courses"
                         className="form-style"
                         id="EnquiryCourses"
                         required="required"
+                        value={state["courses"]}
+                        onChange={handleInputChange}
                       >
                         <option value="">Select Course</option>
                         <option value="S.S.C.">S.S.C.</option>
@@ -165,7 +212,7 @@ const Contact = () => {
                         <option value="Math">MATHEMATICS</option>
                       </select>
                     </div>
-                  </div> */}
+                  </div>
                   <div className="row">
                     <div className="col-md-12 form-item">
                       <p className="formLabel">Your Message</p>
@@ -175,11 +222,14 @@ const Contact = () => {
                         cols="30"
                         rows="6"
                         id="EnquiryRemark"
+                        value={state["remark"]}
+                        onChange={handleInputChange}
                       ></textarea>
                     </div>
                     <div className="form-item">
                       <div className="submit">
                         <input
+                          type="submit"
                           className="form-btn"
                           type="submit"
                           value="Submit"
@@ -191,15 +241,15 @@ const Contact = () => {
               </div>
             </div>
             <div className="col-md-4 col-xs-12">
-                <div className="google-maps">
-                    <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.4765683308688!2d73.51952261487844!3d17.532482787991835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc20628f62d7d99%3A0xc04dfd0f00cf52cd!2sStudents%20Tutorial!5e0!3m2!1sen!2sin!4v1642522536115!5m2!1sen!2sin"
-                    width="280"
-                    height="350"
-                    allowfullscreen=""
-                    loading="lazy"
-                    ></iframe>
-                </div>
+              <div className="google-maps">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.4765683308688!2d73.51952261487844!3d17.532482787991835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc20628f62d7d99%3A0xc04dfd0f00cf52cd!2sStudents%20Tutorial!5e0!3m2!1sen!2sin!4v1642522536115!5m2!1sen!2sin"
+                  width="280"
+                  height="350"
+                  allowFullScreen=""
+                  loading="lazy"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
