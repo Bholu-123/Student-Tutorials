@@ -30,7 +30,7 @@ const dummyData = [
     para: "I would appreciate students tutorial team to guide me and helping me making my foundation strong. Revision classes and unit wise test helped me realizing my weak points so that I could work on it and improve further. Thankful to them since I landed scoring a good percentage in boards.",
   },
   {
-    image: "/yash Shirke.png",
+    image: "/Yash Shirke.png",
     Name: "Yash Shirke",
     para: "Most important lesson of life i learn here is, preparation is always key to success rather then to wait till declaration of exam dates here teachers always guide how you should utilise your time in studys.",
   },
