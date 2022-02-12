@@ -20,11 +20,6 @@ const dummyData = [
     para: "The experience was amazing with student's tutorial Mathematics subject was well taught and explained more than twice.Science-2 subject was a bit difficult for me,but science-2 ma'am gave easy abbreviations to remember the topics.Personally,languages teacher helped me to improve my writing skills,Fundamentally they taught how to begin the writing skills rather than expand it.Teachers used to motivated all of us when we laged in any subject.",
   },
   {
-    image: "/yash Shirke.png",
-    Name: "Yash Shirke",
-    para: "Most important lesson of life i learn here is, preparation is always key to success rather then to wait till declaration of exam dates here teachers always guide how you should utilise your time in studys.",
-  },
-  {
     image: "/Atharva Kanade.png",
     Name: "Atharva Kanade",
     para: "I am very lucky to get admission in student's tutorial at the right time. My preparation was not that impressive but here by the guidance of wonderful faculty team I made significant progress and scored more than decent marks in boards. All the credit goes to faculty team and regular tests which helped me measure my progress.",
@@ -33,6 +28,11 @@ const dummyData = [
     image: "/Ishita Jadhav.png",
     Name: "Ishita Jadhav",
     para: "I would appreciate students tutorial team to guide me and helping me making my foundation strong. Revision classes and unit wise test helped me realizing my weak points so that I could work on it and improve further. Thankful to them since I landed scoring a good percentage in boards.",
+  },
+  {
+    image: "/yash Shirke.png",
+    Name: "Yash Shirke",
+    para: "Most important lesson of life i learn here is, preparation is always key to success rather then to wait till declaration of exam dates here teachers always guide how you should utilise your time in studys.",
   },
 ];
 
