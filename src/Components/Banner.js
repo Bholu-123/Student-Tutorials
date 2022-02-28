@@ -16,13 +16,16 @@ const Banner = () => {
       prevIcon={false}
     >
       <Carousel.Item interval={3000}>
-        <img className="banner-image" src="./banner2.jpg" alt="Second slide" />
+        <img className="banner-image" src="./banner1.jpg" alt="First slide" />
       </Carousel.Item>
       <Carousel.Item interval={3000}>
-        <img className="banner-image" src="./banner1.jpg" alt="First slide" />
+        <img className="banner-image" src="./banner2.jpg" alt="Second slide" />
       </Carousel.Item>
       <Carousel.Item interval={2000}>
         <img className="banner-image" src="./banner3.jpg" alt="Third slide" />
+      </Carousel.Item>
+      <Carousel.Item interval={2000}>
+        <img className="banner-image" src="./banner4.jpg" alt="Third slide" />
       </Carousel.Item>
     </Carousel>
   );

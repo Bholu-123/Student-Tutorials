@@ -15,7 +15,7 @@ function CourseCard({ image, title, para }) {
         </div>
         <div className="course-card-text">
           <h2 className="course-card-title">{title}</h2>
-          <p className="course-card-about">{para}</p>
+          {/* <p className="course-card-about">{para}</p> */}
           <button className="course-card-btn card-btn">
             <Link
               className="course-card-link"

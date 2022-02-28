@@ -45,6 +45,7 @@
 
 .nav-item {
     height: 60px;
+    cursor: pointer;
 }
 
 .nav-links {
@@ -56,6 +57,7 @@
     height: 100%;
     font-size: 2.5rem;
     margin-left: 1.5rem;
+    cursor: pointer;
 }
 
 .nav-links:hover {
@@ -98,6 +100,7 @@
         -moz-transition: all 0.5s ease;
         -ms-transition: all 0.5s ease;
         -o-transition: all 0.5s ease;
+        cursor: pointer;
 }
 
     .nav-menu.active {
@@ -106,6 +109,7 @@
         top: 9rem;
         opacity: 1;
         transition: all 0.5s ease;
+        cursor: pointer;
     }
 
     .nav-links {
@@ -114,6 +118,7 @@
         width: 100%;
         display: table;
         font-size: 2rem;
+        cursor: pointer;
     }
 
     .nav-links:hover {
@@ -128,6 +133,7 @@
         top: 1.5rem;
         right: 2rem;
         font-size: 3rem;
+        cursor: pointer;
         cursor: pointer;
     }
 

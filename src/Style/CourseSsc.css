@@ -47,18 +47,11 @@
     align-items: center;
     justify-content: center;
     margin: 3rem;
-}
-
-.ssc-nav-item:hover  .svg-box{
-    background-color: #a82682;
+    cursor: pointer;
 }
 
 .ssc-nav-item span{
     font-size: 1.5rem;
-}
-
-.ssc-nav-item:hover span{
-    color: #a82682;
 }
 
 .batch-card-container{
@@ -193,3 +186,41 @@
         margin-left: 0rem;
     }
 }
+
+
+.VBRBContainer{
+    width: 80%;
+    margin: auto;
+}
+
+.VBRBContainer p{
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.ssc-name{
+   font-size: 1.5rem;
+   font-weight: bold;
+   margin-bottom: 2rem;
+}
+
+.VBContainer{
+    width: 80%;
+    margin: auto;
+}
+
+.VBContainer p{
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.TBContainer{
+  width: 80%;
+  margin: auto;
+}
+
+.TBContainer p{
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+

@@ -39,9 +39,8 @@ function Home() {
         <DetailsCardWrapper />
         <CourseCardWrapper />
         <CarouselTestimonial />
-        <GalleryContainer />
-        <Contact />
         <Faq />
+        <Contact />
         <img
           src="/bx-up-arrow-alt.svg"
           onClick={scrollToTop}

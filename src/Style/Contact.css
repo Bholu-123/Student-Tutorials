@@ -89,15 +89,15 @@ section {
 }
 
 #address .add-icon {
-    width: 70px;
+    width: 40px;
     vertical-align: top;
     display: inline-block;
     text-align: left;
-    margin-right: 1rem;
+    margin-right: 0rem;
 }
 
 #address .add-icon i {
-    font-size: 70px;
+    font-size: 40px;
     display: inline-block;
     color: #a82682;
 }
@@ -139,6 +139,12 @@ section {
     font-size: 1.5rem;
     padding: 0.5rem;
     margin-bottom: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    -ms-border-radius:5px;
+    -o-border-radius:5px;
 }
 
 .form-style:focus{

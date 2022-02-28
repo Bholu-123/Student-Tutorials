@@ -106,6 +106,7 @@
   -moz-transition: .5s linear;
   -ms-transition: .5s linear;
   -o-transition: .5s linear;
+  cursor: pointer;
 }
 .question svg.active {
   transform: rotate(180deg);

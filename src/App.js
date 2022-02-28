@@ -13,6 +13,7 @@ import GalleryEvents from "./Components/GalleryEvents";
 import GalleryContainer from "./Components/GalleryContainer";
 import CourseJunior from "./Components/CourseJunior";
 import Contact from "./Components/Contact";
+import Course8th from "./Components/Course8th";
 
 const App = () => {
   
@@ -32,7 +33,7 @@ const App = () => {
           exact
           component={GalleryCelebrations}
         />
-        <Route path="/:id" exact component={CourseJunior} />
+        <Route path="/:id" exact component={Course8th} />
       </Switch>
       <Footer />
     </Router>

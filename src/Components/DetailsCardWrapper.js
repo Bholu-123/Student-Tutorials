@@ -34,21 +34,20 @@ function DetailsCardWrapper() {
       },
     ];
     return (
-        <div className="details-container">
-            <h1 className="details-heading">What is Student Tutorial?</h1>
-            <div className="details-card-wrapper">
-                {dummyData.map((element)=>{
-                    return (
-                        <DetailsCard
-                          image={element.image}
-                          title={element.title}
-                          para={element.para}
-                        />
-                    )
-                })
-                }
-            </div>
+      <div className="details-container">
+        <h1 className="details-heading">Our Salient Features!</h1>
+        <div className="details-card-wrapper">
+          {dummyData.map((element) => {
+            return (
+              <DetailsCard
+                image={element.image}
+                title={element.title}
+                para={element.para}
+              />
+            );
+          })}
         </div>
+      </div>
     );
 }
 

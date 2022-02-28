@@ -64,9 +64,9 @@ const Contact = () => {
                     <div className="add-text">
                       <span>Address</span>
                       <br />
-                      Ramtirth Markandi near municipal swimming pool, Chiplun,
+                      Ramtirth Markandi near municipal swimming pool
                       <br />
-                      Maharashtra 415605
+                      Chiplun,Maharashtra 415605
                     </div>
                   </li>
 
@@ -76,6 +76,17 @@ const Contact = () => {
                     </div>
                     <div className="add-text">
                       <span>Contact Number</span>
+                      <br />
+                      092721 88068
+                    </div>
+                  </li>
+
+                  <li>
+                    <div className="add-icon">
+                      <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div className="add-text">
+                      <span>Whatsapp Number</span>
                       <br />
                       092721 88068
                     </div>
@@ -102,6 +113,7 @@ const Contact = () => {
                     <div className="col-sm-6 col-xs-12 form-item required">
                       <p className="formLabel">First Name</p>
                       <input
+                        placeholder="Enter your first name"
                         name="first-name"
                         className="form-style"
                         maxLength="100"
@@ -115,6 +127,7 @@ const Contact = () => {
                     <div className="col-sm-6 col-xs-12 form-item required">
                       <p className="formLabel">Last Name</p>
                       <input
+                        placeholder="Enter your last name"
                         name="last-name"
                         className="form-style"
                         maxLength="100"
@@ -131,6 +144,7 @@ const Contact = () => {
                     <div className="col-sm-6 col-xs-12 form-item required">
                       <p className="formLabel">Contact No.</p>
                       <input
+                        placeholder="Enter your contact number"
                         name="contact-no"
                         className="form-style"
                         maxLength="255"
@@ -144,6 +158,7 @@ const Contact = () => {
                     <div className="col-sm-6 col-xs-12 form-item required">
                       <p className="formLabel">Email ID.</p>
                       <input
+                        placeholder="Enter your email address"
                         name="email-address"
                         className="form-style"
                         maxLength="255"
@@ -232,7 +247,7 @@ const Contact = () => {
                           type="submit"
                           className="form-btn"
                           type="submit"
-                          value="Submit"
+                          value="Request a call back"
                         />
                       </div>
                     </div>

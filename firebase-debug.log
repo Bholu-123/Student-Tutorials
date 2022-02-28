@@ -1,0 +1,94 @@
+[debug] [2022-02-28T19:17:06.812Z] ----------------------------------------------------------------------
+[debug] [2022-02-28T19:17:06.814Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Acer\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-02-28T19:17:06.815Z] CLI Version:   10.2.0
+[debug] [2022-02-28T19:17:06.815Z] Platform:      win32
+[debug] [2022-02-28T19:17:06.815Z] Node Version:  v16.13.1
+[debug] [2022-02-28T19:17:06.816Z] Time:          Tue Mar 01 2022 00:47:06 GMT+0530 (India Standard Time)
+[debug] [2022-02-28T19:17:06.817Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-02-28T19:17:06.912Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-02-28T19:17:06.912Z] > authorizing via signed-in user (anupam802154@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Acer\Desktop\FREELANCER\Student-Tutorials
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-02-28T19:18:07.835Z] Using project from CLI flag: student-tut
+[debug] [2022-02-28T19:18:07.836Z] > refreshing access token with scopes: []
+[debug] [2022-02-28T19:18:07.837Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-02-28T19:18:08.089Z] <<< HTTP RESPONSE 400 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Mon, 28 Feb 2022 19:18:07 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-02-28T19:18:08.096Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/student-tut [none]
+[debug] [2022-02-28T19:18:08.651Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/student-tut 401
+[debug] [2022-02-28T19:18:08.652Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/student-tut {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2022-02-28T19:18:08.653Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2022-02-28T19:18:08.942Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at module.exports (C:\Users\Acer\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:38:12)
+    at RetryOperation._fn (C:\Users\Acer\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:283:39)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project student-tut. Please make sure the project exists and your account has permission to access it.
+[debug] [2022-02-28T19:18:32.596Z] ----------------------------------------------------------------------
+[debug] [2022-02-28T19:18:32.598Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Acer\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-02-28T19:18:32.598Z] CLI Version:   10.2.0
+[debug] [2022-02-28T19:18:32.598Z] Platform:      win32
+[debug] [2022-02-28T19:18:32.599Z] Node Version:  v16.13.1
+[debug] [2022-02-28T19:18:32.600Z] Time:          Tue Mar 01 2022 00:48:32 GMT+0530 (India Standard Time)
+[debug] [2022-02-28T19:18:32.600Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-02-28T19:18:32.680Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-02-28T19:18:32.681Z] > authorizing via signed-in user (anupam802154@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Acer\Desktop\FREELANCER\Student-Tutorials
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-02-28T19:19:06.835Z] Using project from CLI flag: student-tut
+[debug] [2022-02-28T19:19:06.837Z] > refreshing access token with scopes: []
+[debug] [2022-02-28T19:19:06.838Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-02-28T19:19:07.084Z] <<< HTTP RESPONSE 400 {"date":"Mon, 28 Feb 2022 19:19:06 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-02-28T19:19:07.087Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/student-tut [none]
+[debug] [2022-02-28T19:19:07.588Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/student-tut 401
+[debug] [2022-02-28T19:19:07.588Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/student-tut {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2022-02-28T19:19:07.589Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2022-02-28T19:19:07.878Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at module.exports (C:\Users\Acer\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:38:12)
+    at RetryOperation._fn (C:\Users\Acer\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:283:39)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project student-tut. Please make sure the project exists and your account has permission to access it.
