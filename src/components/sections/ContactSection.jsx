@@ -3,8 +3,26 @@ import { HiLocationMarker, HiPhone } from 'react-icons/hi';
 import { FaWhatsapp } from 'react-icons/fa';
 import SectionWrapper from '../common/SectionWrapper';
 import Button from '../common/Button';
+import {
+  validateFirstName,
+  validateLastName,
+  validatePhoneField,
+  validateEmailField,
+  validateMessageField,
+  sanitizeMessage,
+} from '../../utils/contactValidation';
 
 const INITIAL = {
+  firstName: '',
+  lastName: '',
+  phone: '',
+  email: '',
+  medium: '',
+  standard: '',
+  message: '',
+};
+
+const INITIAL_FIELD_ERRORS = {
   firstName: '',
   lastName: '',
   phone: '',
@@ -17,15 +35,40 @@ const INITIAL = {
 const ENQUIRY_API =
   import.meta.env.VITE_ENQUIRY_API_URL || '/api/submit-enquiry';
 
+const inputErrorClass =
+  'border-red-500 dark:border-red-500 focus:ring-red-500 focus:border-red-500';
+
 const ContactSection = () => {
   const [form, setForm] = useState(INITIAL);
+  const [fieldErrors, setFieldErrors] = useState(INITIAL_FIELD_ERRORS);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const honeypotRef = useRef(null);
 
-  const handleChange = (e) =>
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  const handleChange = (e) => {
+    const { name } = e.target;
+    setForm((prev) => ({ ...prev, [name]: e.target.value }));
+    setFieldErrors((prev) => ({ ...prev, [name]: '' }));
+    setError('');
+  };
+
+  const runValidation = () => {
+    const mediumErr = !form.medium.trim() ? 'Please select a medium' : '';
+    const standardErr = !form.standard.trim() ? 'Please select a standard' : '';
+    const errs = {
+      firstName: validateFirstName(form.firstName),
+      lastName: validateLastName(form.lastName),
+      phone: validatePhoneField(form.phone),
+      email: validateEmailField(form.email),
+      medium: mediumErr,
+      standard: standardErr,
+      message: validateMessageField(form.message),
+    };
+    setFieldErrors(errs);
+    const first = Object.entries(errs).find(([, v]) => v);
+    return first ? first[1] : null;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,10 +76,19 @@ const ContactSection = () => {
 
     if (honeypotRef.current?.value) {
       setForm(INITIAL);
+      setFieldErrors(INITIAL_FIELD_ERRORS);
       setSubmitted(true);
       setTimeout(() => setSubmitted(false), 4000);
       return;
     }
+
+    const firstError = runValidation();
+    if (firstError) {
+      setError('Please fix the errors below.');
+      return;
+    }
+
+    const cleanMessage = sanitizeMessage(form.message);
 
     setLoading(true);
     try {
@@ -44,13 +96,13 @@ const ContactSection = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          firstName: form.firstName,
-          lastName: form.lastName,
-          phone: form.phone,
-          email: form.email,
+          firstName: form.firstName.trim(),
+          lastName: form.lastName.trim(),
+          phone: form.phone.trim(),
+          email: form.email.trim(),
           medium: form.medium,
           standard: form.standard,
-          message: form.message,
+          message: cleanMessage,
           pageUrl: typeof window !== 'undefined' ? window.location.href : '',
           _honeypot: honeypotRef.current?.value || '',
         }),
@@ -63,6 +115,7 @@ const ContactSection = () => {
       }
 
       setForm(INITIAL);
+      setFieldErrors(INITIAL_FIELD_ERRORS);
       setSubmitted(true);
       setTimeout(() => setSubmitted(false), 5000);
     } catch {
@@ -73,6 +126,8 @@ const ContactSection = () => {
       setLoading(false);
     }
   };
+
+  const fe = fieldErrors;
 
   return (
     <SectionWrapper id="contact" className="bg-gray-50 dark:bg-gray-900">
@@ -123,7 +178,7 @@ const ContactSection = () => {
                 key={label}
                 className="flex gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 shadow-sm"
               >
-                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center shrink-0">
                   <Icon size={18} className="text-brand" />
                 </div>
                 <div>
@@ -167,7 +222,7 @@ const ContactSection = () => {
                 {error}
               </div>
             )}
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4" noValidate>
               <input
                 ref={honeypotRef}
                 type="text"
@@ -179,41 +234,119 @@ const ContactSection = () => {
               />
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">First Name</label>
-                <input name="firstName" value={form.firstName} onChange={handleChange} required placeholder="Enter first name" className="form-input" />
+                <input
+                  name="firstName"
+                  value={form.firstName}
+                  onChange={handleChange}
+                  required
+                  placeholder="Enter first name"
+                  autoComplete="given-name"
+                  aria-invalid={!!fe.firstName}
+                  className={`form-input ${fe.firstName ? inputErrorClass : ''}`}
+                />
+                {fe.firstName && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.firstName}</p>}
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Last Name</label>
-                <input name="lastName" value={form.lastName} onChange={handleChange} required placeholder="Enter last name" className="form-input" />
+                <input
+                  name="lastName"
+                  value={form.lastName}
+                  onChange={handleChange}
+                  required
+                  placeholder="Enter last name"
+                  autoComplete="family-name"
+                  aria-invalid={!!fe.lastName}
+                  className={`form-input ${fe.lastName ? inputErrorClass : ''}`}
+                />
+                {fe.lastName && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.lastName}</p>}
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Contact No.</label>
-                <input name="phone" value={form.phone} onChange={handleChange} required placeholder="Enter contact number" className="form-input" />
+                <input
+                  name="phone"
+                  type="tel"
+                  inputMode="numeric"
+                  value={form.phone}
+                  onChange={handleChange}
+                  required
+                  placeholder="10-digit mobile (e.g. 9876543210)"
+                  autoComplete="tel"
+                  aria-invalid={!!fe.phone}
+                  className={`form-input ${fe.phone ? inputErrorClass : ''}`}
+                />
+                {fe.phone && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.phone}</p>}
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email ID</label>
-                <input name="email" type="email" value={form.email} onChange={handleChange} required placeholder="Enter email address" className="form-input" />
+                <input
+                  name="email"
+                  type="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="name@example.com"
+                  autoComplete="email"
+                  aria-invalid={!!fe.email}
+                  className={`form-input ${fe.email ? inputErrorClass : ''}`}
+                />
+                {fe.email && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.email}</p>}
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Medium</label>
-                <select name="medium" value={form.medium} onChange={handleChange} required className="form-input">
+                <select
+                  name="medium"
+                  value={form.medium}
+                  onChange={handleChange}
+                  required
+                  aria-invalid={!!fe.medium}
+                  className={`form-input ${fe.medium ? inputErrorClass : ''}`}
+                >
                   <option value="">Select Medium</option>
-                  <option>English Medium</option>
-                  <option>Marathi Medium</option>
-                  <option>Hindi Medium</option>
+                  <option value="English Medium">English Medium</option>
+                  <option value="Marathi Medium">Marathi Medium</option>
+                  <option value="Hindi Medium">Hindi Medium</option>
                 </select>
+                {fe.medium && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.medium}</p>}
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Standard</label>
-                <select name="standard" value={form.standard} onChange={handleChange} required className="form-input">
+                <select
+                  name="standard"
+                  value={form.standard}
+                  onChange={handleChange}
+                  required
+                  aria-invalid={!!fe.standard}
+                  className={`form-input ${fe.standard ? inputErrorClass : ''}`}
+                >
                   <option value="">Select Standard</option>
-                  <option>8th</option>
-                  <option>9th</option>
-                  <option>10th</option>
+                  <option value="8th">8th</option>
+                  <option value="9th">9th</option>
+                  <option value="10th">10th</option>
                 </select>
+                {fe.standard && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.standard}</p>}
               </div>
               <div className="sm:col-span-2">
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Your Message</label>
-                <textarea name="message" value={form.message} onChange={handleChange} rows={4} placeholder="Any questions or remarks..." className="form-input resize-none" />
+                <textarea
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  rows={4}
+                  placeholder="Any questions or remarks… (max 2000 characters, no HTML)"
+                  maxLength={2000}
+                  aria-invalid={!!fe.message}
+                  className={`form-input resize-none ${fe.message ? inputErrorClass : ''}`}
+                />
+                <div className="flex justify-between gap-2 mt-1">
+                  {fe.message ? (
+                    <p className="text-xs text-red-600 dark:text-red-400">{fe.message}</p>
+                  ) : (
+                    <span />
+                  )}
+                  <span className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">
+                    {form.message.length}/2000
+                  </span>
+                </div>
               </div>
               <div className="sm:col-span-2">
                 <Button type="submit" className="w-full sm:w-auto" disabled={loading}>

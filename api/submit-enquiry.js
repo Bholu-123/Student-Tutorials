@@ -13,6 +13,19 @@
  */
 
 const { google } = require('googleapis');
+const {
+  formatSubmittedAt,
+  validateEnquiry,
+} = require('./validation-enquiry');
+
+/** A1 range: quote tab names with spaces/special chars (Sheets API). */
+function sheetA1Range(tabName, cols) {
+  const name = String(tabName).trim();
+  const needsQuotes = /[^A-Za-z0-9_]/.test(name);
+  const escaped = name.replace(/'/g, "''");
+  const sheet = needsQuotes ? `'${escaped}'` : name;
+  return `${sheet}!${cols}`;
+}
 
 function getSheetsClient() {
   const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
@@ -39,19 +52,6 @@ function getSheetsClient() {
   return { sheets: google.sheets({ version: 'v4', auth }), sheetId };
 }
 
-function validateBody(body) {
-  if (!body || typeof body !== 'object') return 'Invalid JSON body';
-  const { firstName, lastName, phone, email, medium, standard } = body;
-
-  if (!firstName || !lastName || !phone || !email || !medium || !standard) {
-    return 'Missing required fields';
-  }
-  if (String(email).length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
-    return 'Invalid email';
-  }
-  return null;
-}
-
 module.exports = async (req, res) => {
   if (req.method === 'OPTIONS') {
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -75,9 +75,9 @@ module.exports = async (req, res) => {
     return res.status(200).json({ ok: true });
   }
 
-  const validationError = validateBody(body);
-  if (validationError) {
-    return res.status(400).json({ ok: false, error: validationError });
+  const { error, clean } = validateEnquiry(body);
+  if (error) {
+    return res.status(400).json({ ok: false, error });
   }
 
   const {
@@ -87,24 +87,24 @@ module.exports = async (req, res) => {
     email,
     medium,
     standard,
-    message = '',
-    pageUrl = '',
-  } = body;
+    message,
+  } = clean;
+  const pageUrl = String(body.pageUrl ?? '').trim().slice(0, 2000);
 
   const tab = process.env.GOOGLE_SHEET_TAB || 'Sheet1';
-  const range = `${tab}!A:I`;
-  const submittedAt = new Date().toISOString();
+  const range = sheetA1Range(tab, 'A:I');
+  const submittedAt = formatSubmittedAt();
 
   const row = [
     submittedAt,
-    String(firstName).trim(),
-    String(lastName).trim(),
-    String(phone).trim(),
-    String(email).trim(),
-    String(medium).trim(),
-    String(standard).trim(),
-    String(message).trim().slice(0, 5000),
-    String(pageUrl).trim().slice(0, 2000),
+    firstName,
+    lastName,
+    phone,
+    email,
+    medium,
+    standard,
+    message,
+    pageUrl,
   ];
 
   try {
