@@ -39,6 +39,10 @@
   .slick-slide > div {
     height: 100%;
   }
+  /* Testimonials: one slide on mobile — let card height follow content */
+  .testimonials-slider .slick-slide > div {
+    height: auto;
+  }
   /* Make slick dots use brand colour */
   .slick-dots li.slick-active button::before {
     color: var(--color-brand) !important;
