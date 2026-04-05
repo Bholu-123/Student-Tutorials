@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+/* ── Dark mode via .dark class on <html> ───────────────────────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Brand colour tokens ───────────────────────────────────────────── */
+@theme {
+  --color-brand:       #a82682;
+  --color-brand-light: #c236a0;
+  --color-brand-dark:  #8a1e6a;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Base reset ────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300 font-sans;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Slick carousel — keep slides same height */
+  .slick-track {
+    display: flex !important;
+    align-items: stretch;
+  }
+  .slick-slide {
+    height: inherit !important;
+  }
+  .slick-slide > div {
+    height: 100%;
+  }
+  /* Make slick dots use brand colour */
+  .slick-dots li.slick-active button::before {
+    color: var(--color-brand) !important;
+  }
+}
+
+/* ── Reusable component classes ────────────────────────────────────── */
+@layer components {
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-center text-gray-800 dark:text-gray-100 mb-2;
+  }
+
+  .title-divider {
+    @apply w-16 h-1 bg-brand mx-auto mb-10 rounded-full;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600
+           bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
+           focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent
+           transition placeholder:text-gray-400 dark:placeholder:text-gray-500;
+  }
+}
