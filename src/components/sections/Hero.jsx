@@ -28,17 +28,21 @@ const Hero = () => {
 
   return (
     <div className="relative w-full overflow-hidden bg-gray-900">
-      <div className="relative h-[55vw] max-h-[640px] min-h-[260px]">
+      {/* Wide banners + object-cover crop the sides on narrow screens; below lg use contain so the full artwork fits. */}
+      <div
+        className="relative w-full min-h-[240px] max-h-[640px]
+                   h-[min(58vw,480px)] lg:h-[55vw] lg:max-h-[640px]"
+      >
         {SLIDES.map((slide, i) => (
           <img
             key={slide.src}
             src={slide.src}
             alt={slide.alt}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700
+            className={`absolute inset-0 w-full h-full object-contain lg:object-cover transition-opacity duration-700
               ${i === current ? 'opacity-100' : 'opacity-0'}`}
           />
         ))}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/40 pointer-events-none" />
       </div>
 
       <button
