@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { HiMenu, HiX, HiSun, HiMoon } from 'react-icons/hi';
 import { useTheme } from '../../context/ThemeContext';
 import { PATHS, isCoursesNavActive, isGalleryNavActive } from '../../routes/paths';
+import { BRAND } from '../../constants/mediaPaths';
 
 const NAV_LINKS = [
   { to: PATHS.HOME, label: 'Home', end: true, isActive: (p) => p === PATHS.HOME },
@@ -22,7 +23,7 @@ const NAV_LINKS = [
 ];
 
 const linkBase =
-  'px-4 py-2 text-base font-medium border-b-2 transition-colors duration-200 outline-none';
+  'px-4 py-2 text-base font-medium border-b-2 transition-colors duration-200 outline-none cursor-pointer';
 const linkActive   = 'text-brand border-brand';
 const linkInactive = 'text-gray-700 dark:text-gray-200 border-transparent hover:text-brand dark:hover:text-brand-light';
 
@@ -57,9 +58,13 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
 
           {/* Logo */}
-          <NavLink to={PATHS.HOME} onClick={closeMenu} className="shrink-0">
+          <NavLink
+            to={PATHS.HOME}
+            onClick={closeMenu}
+            className="shrink-0 cursor-pointer outline-none"
+          >
             <img
-              src="/logo.png"
+              src={BRAND.logo}
               alt="Student's Tutorial"
               className="h-14 w-auto object-contain"
             />
@@ -85,18 +90,20 @@ const Navbar = () => {
           {/* Theme toggle + hamburger */}
           <div className="flex items-center gap-2">
             <button
+              type="button"
               onClick={toggle}
               aria-label="Toggle dark mode"
-              className="p-2 rounded-lg text-gray-600 dark:text-gray-300
+              className="p-2 rounded-lg text-gray-600 dark:text-gray-300 cursor-pointer
                          hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             >
               {isDark ? <HiSun size={22} /> : <HiMoon size={22} />}
             </button>
 
             <button
+              type="button"
               onClick={() => setMenuOpen((o) => !o)}
               aria-label="Toggle menu"
-              className="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300
+              className="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 cursor-pointer
                          hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             >
               {menuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
@@ -118,7 +125,7 @@ const Navbar = () => {
                   end={end}
                   onClick={closeMenu}
                   className={() =>
-                    `block px-4 py-3 rounded-lg text-base font-medium transition-colors duration-200
+                    `block px-4 py-3 rounded-lg text-base font-medium transition-colors duration-200 cursor-pointer
                      ${isActive(pathname)
                        ? 'text-brand bg-brand/5'
                        : 'text-gray-700 dark:text-gray-200 hover:text-brand hover:bg-brand/5 dark:hover:text-brand-light'

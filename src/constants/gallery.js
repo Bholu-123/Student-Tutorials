@@ -1,60 +1,77 @@
 import { SEG } from '../routes/paths';
+import { GALLERY } from './mediaPaths';
 
+/** Home gallery cards — use files that exist under gallery/classroom (DSC_* may be absent). */
 export const GALLERY_CATEGORIES = [
   {
-    image: '/Classes/DSC_6607.jpg',
+    image: `${GALLERY.classroom}/classroom-29.jpg`,
     title: 'Classroom',
     slug: SEG.GALLERY_CLASSROOM,
   },
   {
-    image: '/Classes/DSC_0328.jpg',
+    image: `${GALLERY.events}/event-01.jpg`,
     title: 'Events',
     slug: SEG.GALLERY_EVENTS,
   },
   {
-    image: '/Classes/DSC_6627.jpg',
+    image: `${GALLERY.celebrations}/celebration-05.jpg`,
     title: 'Celebrations',
     slug: SEG.GALLERY_CELEBRATIONS,
   },
 ];
 
-export const CLASSROOM_IMAGES = [
-  { src: '/Classes/DSC_2021.jpg', caption: 'Classroom' },
-  { src: '/Classes/DSC_6592.jpg', caption: 'Classroom' },
-  { src: '/Classes/DSC_6603.jpg', caption: 'Classroom' },
-  { src: '/Classes/DSC_6607.jpg', caption: 'Classroom' },
-  { src: '/Classes/DSC_0270.jpg', caption: 'Classroom' },
-];
+const CLASSROOM_FROM = 10;
+const CLASSROOM_TO = 29;
+
+export const CLASSROOM_IMAGES = Array.from(
+  { length: CLASSROOM_TO - CLASSROOM_FROM + 1 },
+  (_, i) => ({
+    src: `${GALLERY.classroom}/classroom-${String(CLASSROOM_FROM + i).padStart(2, '0')}.jpg`,
+    caption: 'Classroom',
+  })
+);
+
+const celebrationSrc = (n) =>
+  `${GALLERY.celebrations}/celebration-${String(n).padStart(2, '0')}.jpg`;
+
+/** celebration-01..celebration-17 under public/gallery/celebrations. */
+const CELEBRATIONS_NUMBERED_LAST = 17;
 
 export const CELEBRATIONS_IMAGES = [
-  { src: '/Classes/DSC_3743.jpg', caption: 'Prize Distribution' },
-  { src: '/Classes/DSC_3745.jpg', caption: 'Prize Distribution' },
-  { src: '/Classes/DSC_6625.jpg', caption: 'Prize Distribution' },
-  { src: '/Classes/DSC_6626.jpg', caption: 'Prize Distribution' },
-  { src: '/Classes/DSC_6627.jpg', caption: 'Prize Distribution' },
-  { src: '/Classes/DSC_6634.jpg', caption: 'Prize Distribution' },
-  { src: '/Classes/DSC_6664.jpg', caption: 'Teachers with Students' },
-  { src: '/Classes/DSC_6675.jpg', caption: 'Teachers with Students' },
-  { src: '/Classes/DSC_9057.jpg', caption: 'Teachers with Students' },
-  { src: '/Classes/DSC_9075.jpg', caption: 'Teachers with Students' },
+  ...Array.from({ length: 6 }, (_, i) => ({
+    src: celebrationSrc(i + 1),
+    caption: 'Prize Distribution',
+  })),
+  ...Array.from({ length: 4 }, (_, i) => ({
+    src: celebrationSrc(7 + i),
+    caption: 'Teachers with Students',
+  })),
+  ...Array.from({ length: CELEBRATIONS_NUMBERED_LAST - 10 }, (_, i) => ({
+    src: celebrationSrc(11 + i),
+    caption: 'Celebration',
+  })),
 ];
 
+const eventSrc = (n) =>
+  `${GALLERY.events}/event-${String(n).padStart(2, '0')}.jpg`;
+
+/** event-01..event-42 under public/gallery/events (numbered on disk). */
+const EVENTS_NUMBERED_LAST = 42;
+
 export const EVENTS_IMAGES = [
-  { src: '/Classes/DSC_0328.jpg', caption: 'Annual Event' },
-  { src: '/Classes/DSC_0388.jpg', caption: 'Annual Event' },
-  { src: '/Classes/DSC_0390.jpg', caption: 'Annual Event' },
-  { src: '/Classes/DSC_1164.jpg', caption: 'Annual Event' },
-  { src: '/Classes/DSC_1183.jpg', caption: 'Annual Event' },
-  { src: '/Classes/DSC_1195.jpg', caption: 'Annual Event' },
-  { src: '/Classes/DSC_1303.jpg', caption: 'Annual Event' },
-  { src: '/Classes/DSC_2029.jpg', caption: 'Annual Event' },
-  { src: '/Classes/DSC_3567.jpg', caption: 'Annual Event' },
-  { src: '/Classes/DSC_3602.jpg', caption: 'Annual Event' },
-  { src: '/Classes/IMG-20181002-WA0008.jpg', caption: 'Drawing Competition' },
-  { src: '/Classes/IMG-20181002-WA0006.jpg', caption: 'Drawing Competition' },
-  { src: '/Classes/IMG-20151231-WA0005.jpg', caption: 'Drawing Competition' },
-  { src: '/Classes/IMG-20151231-WA0009.jpg', caption: 'Drawing Competition' },
-  { src: '/Classes/IMG-20161226-WA0014.jpg', caption: 'Drawing Competition' },
-  { src: '/Classes/DSC_2146.jpg', caption: 'Annual Event' },
-  { src: '/Classes/DSC_2139.jpg', caption: 'Annual Event' },
+  ...Array.from({ length: 10 }, (_, i) => ({
+    src: eventSrc(i + 1),
+    caption: 'Annual Event',
+  })),
+  { src: `${GALLERY.classroom}/classroom-10.jpg`, caption: 'Drawing Competition' },
+  { src: `${GALLERY.classroom}/classroom-11.jpg`, caption: 'Drawing Competition' },
+  { src: `${GALLERY.classroom}/classroom-12.jpg`, caption: 'Drawing Competition' },
+  { src: `${GALLERY.classroom}/classroom-13.jpg`, caption: 'Drawing Competition' },
+  { src: `${GALLERY.classroom}/classroom-14.jpg`, caption: 'Drawing Competition' },
+  { src: eventSrc(11), caption: 'Annual Event' },
+  { src: eventSrc(12), caption: 'Annual Event' },
+  ...Array.from({ length: EVENTS_NUMBERED_LAST - 12 }, (_, i) => ({
+    src: eventSrc(13 + i),
+    caption: 'Annual Event',
+  })),
 ];

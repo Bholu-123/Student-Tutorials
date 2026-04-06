@@ -2,12 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionWrapper from '../common/SectionWrapper';
 import Breadcrumbs from '../common/Breadcrumbs';
-import Button from '../common/Button';
 import { GALLERY_CATEGORIES } from '../../constants/gallery';
 
 const GalleryCard = ({ image, title, slug }) => (
   <div
-    className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl
+    className="group relative isolate rounded-2xl overflow-hidden shadow-md hover:shadow-xl
                transition-all duration-300 aspect-[4/3]"
   >
     <img
@@ -20,10 +19,16 @@ const GalleryCard = ({ image, title, slug }) => (
                  flex flex-col justify-end p-5"
     >
       <h3 className="text-white font-bold text-lg mb-3">{title}</h3>
-      <Link to={`/${slug}`}>
-        <Button size="sm" variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900 w-max">
-          View All
-        </Button>
+      <Link
+        to={`/${slug}`}
+        className="inline-flex w-max items-center justify-center rounded-lg border-2 border-white
+                   bg-transparent px-4 py-1.5 text-sm font-semibold text-white
+                   transition-colors duration-200 cursor-pointer
+                   hover:bg-white hover:text-gray-900
+                   focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2
+                   focus-visible:ring-offset-black/50"
+      >
+        View All
       </Link>
     </div>
   </div>

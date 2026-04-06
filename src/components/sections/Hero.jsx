@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
+import { GALLERY } from '../../constants/mediaPaths';
 
 const SLIDES = [
-  { src: '/banner1.jpg', alt: 'Students Tutorial' },
-  { src: '/banner2.jpg', alt: 'Our Classroom' },
-  { src: '/banner3.jpg', alt: 'Learning Together' },
-  { src: '/banner4.jpg', alt: 'Celebrate Success' },
+  { src: `${GALLERY.banners}/banner1.jpg`, alt: 'Students Tutorial' },
+  { src: `${GALLERY.banners}/banner2.jpg`, alt: 'Our Classroom' },
+  { src: `${GALLERY.banners}/banner3.jpg`, alt: 'Learning Together' },
+  { src: `${GALLERY.banners}/banner4.jpg`, alt: 'Celebrate Success' },
 ];
 
 const Hero = () => {
@@ -41,18 +42,20 @@ const Hero = () => {
       </div>
 
       <button
+        type="button"
         onClick={prev}
         aria-label="Previous slide"
-        className="absolute left-3 top-1/2 -translate-y-1/2 z-10
+        className="absolute left-3 top-1/2 -translate-y-1/2 z-10 cursor-pointer
                    w-10 h-10 rounded-full bg-white/20 hover:bg-white/40
                    flex items-center justify-center text-white transition"
       >
         <HiChevronLeft size={22} />
       </button>
       <button
+        type="button"
         onClick={next}
         aria-label="Next slide"
-        className="absolute right-3 top-1/2 -translate-y-1/2 z-10
+        className="absolute right-3 top-1/2 -translate-y-1/2 z-10 cursor-pointer
                    w-10 h-10 rounded-full bg-white/20 hover:bg-white/40
                    flex items-center justify-center text-white transition"
       >
@@ -62,10 +65,11 @@ const Hero = () => {
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
         {SLIDES.map((_, i) => (
           <button
+            type="button"
             key={i}
             onClick={() => setCurrent(i)}
             aria-label={`Go to slide ${i + 1}`}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+            className={`w-2.5 h-2.5 rounded-full cursor-pointer transition-all duration-300 ${
               i === current ? 'bg-brand scale-125' : 'bg-white/60 hover:bg-white'
             }`}
           />
