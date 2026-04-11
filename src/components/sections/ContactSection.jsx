@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { HiLocationMarker, HiPhone } from 'react-icons/hi';
 import { FaWhatsapp } from 'react-icons/fa';
 import SectionWrapper from '../common/SectionWrapper';
@@ -55,7 +55,6 @@ const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const honeypotRef = useRef(null);
 
   const handleChange = (e) => {
     const { name } = e.target;
@@ -86,14 +85,6 @@ const ContactSection = () => {
     e.preventDefault();
     setError('');
 
-    if (honeypotRef.current?.value) {
-      setForm(INITIAL);
-      setFieldErrors(INITIAL_FIELD_ERRORS);
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 4000);
-      return;
-    }
-
     const firstError = runValidation();
     if (firstError) {
       setError('Please fix the errors below.');
@@ -117,7 +108,6 @@ const ContactSection = () => {
           medium: form.medium,
           message: cleanMessage,
           pageUrl: typeof window !== 'undefined' ? window.location.href : '',
-          _honeypot: honeypotRef.current?.value || '',
         }),
       });
 
@@ -263,15 +253,6 @@ const ContactSection = () => {
               </div>
             )}
             <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4" noValidate>
-              <input
-                ref={honeypotRef}
-                type="text"
-                name="company"
-                tabIndex={-1}
-                autoComplete="off"
-                className="sr-only"
-                aria-hidden
-              />
               <div className="sm:col-span-2">
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Name

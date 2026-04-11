@@ -71,10 +71,6 @@ module.exports = async (req, res) => {
     return res.status(400).json({ ok: false, error: 'Invalid JSON' });
   }
 
-  if (body && body._honeypot) {
-    return res.status(200).json({ ok: true });
-  }
-
   const { error, clean } = validateEnquiry(body);
   if (error) {
     return res.status(400).json({ ok: false, error });
