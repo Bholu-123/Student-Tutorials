@@ -4,31 +4,40 @@ import { FaWhatsapp } from 'react-icons/fa';
 import SectionWrapper from '../common/SectionWrapper';
 import Button from '../common/Button';
 import {
-  validateFirstName,
-  validateLastName,
-  validatePhoneField,
-  validateEmailField,
+  validatePersonName,
+  validatePhoneRequired,
+  validateEmailOptional,
   validateMessageField,
   sanitizeMessage,
 } from '../../utils/contactValidation';
+import {
+  INSTITUTE_MAPS_URL,
+  HEAD_OFFICE_ADDRESS,
+  DEVRUKH_BRANCH_ADDRESS,
+  BRANCH_LOCATIONS,
+  CONTACT_PHONES,
+} from '../../constants/contactInfo';
+import { ENQUIRY_BRANCH_OPTIONS, ENQUIRY_COURSE_OPTIONS } from '../../constants/enquiryCourses';
 
 const INITIAL = {
-  firstName: '',
-  lastName: '',
-  phone: '',
+  name: '',
+  parentPhone: '',
+  studentPhone: '',
   email: '',
+  branch: '',
+  course: '',
   medium: '',
-  standard: '',
   message: '',
 };
 
 const INITIAL_FIELD_ERRORS = {
-  firstName: '',
-  lastName: '',
-  phone: '',
+  name: '',
+  parentPhone: '',
+  studentPhone: '',
   email: '',
+  branch: '',
+  course: '',
   medium: '',
-  standard: '',
   message: '',
 };
 
@@ -37,6 +46,8 @@ const ENQUIRY_API =
 
 const inputErrorClass =
   'border-red-500 dark:border-red-500 focus:ring-red-500 focus:border-red-500';
+
+const Req = () => <span className="text-red-600 dark:text-red-400" aria-hidden> *</span>;
 
 const ContactSection = () => {
   const [form, setForm] = useState(INITIAL);
@@ -55,14 +66,15 @@ const ContactSection = () => {
 
   const runValidation = () => {
     const mediumErr = !form.medium.trim() ? 'Please select a medium' : '';
-    const standardErr = !form.standard.trim() ? 'Please select a standard' : '';
+    const branchErr = !form.branch.trim() ? 'Please select a branch' : '';
     const errs = {
-      firstName: validateFirstName(form.firstName),
-      lastName: validateLastName(form.lastName),
-      phone: validatePhoneField(form.phone),
-      email: validateEmailField(form.email),
+      name: validatePersonName(form.name),
+      parentPhone: validatePhoneRequired(form.parentPhone, "Parent's contact number"),
+      studentPhone: validatePhoneRequired(form.studentPhone, "Student's contact number"),
+      email: validateEmailOptional(form.email),
+      branch: branchErr,
+      course: '',
       medium: mediumErr,
-      standard: standardErr,
       message: validateMessageField(form.message),
     };
     setFieldErrors(errs);
@@ -96,12 +108,13 @@ const ContactSection = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          firstName: form.firstName.trim(),
-          lastName: form.lastName.trim(),
-          phone: form.phone.trim(),
+          name: form.name.trim(),
+          parentPhone: form.parentPhone.trim(),
+          studentPhone: form.studentPhone.trim(),
           email: form.email.trim(),
+          branch: form.branch,
+          course: form.course.trim(),
           medium: form.medium,
-          standard: form.standard,
           message: cleanMessage,
           pageUrl: typeof window !== 'undefined' ? window.location.href : '',
           _honeypot: honeypotRef.current?.value || '',
@@ -135,60 +148,83 @@ const ContactSection = () => {
       <div className="title-divider" />
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
-        {/* Info + Map */}
         <div className="lg:col-span-2 flex flex-col gap-6">
           <div className="flex flex-col gap-4">
-            {[
-              {
-                Icon: HiLocationMarker,
-                label: 'Address',
-                content: (
-                  <>
-                    Ramtirth Markandi near municipal swimming pool,
-                    <br />
-                    Chiplun, Maharashtra 415605
-                  </>
-                ),
-              },
-              {
-                Icon: HiPhone,
-                label: 'Phone',
-                content: (
-                  <a href="tel:09272188068" className="hover:text-brand transition-colors">
-                    092721 88068
-                  </a>
-                ),
-              },
-              {
-                Icon: FaWhatsapp,
-                label: 'WhatsApp',
-                content: (
-                  <a
-                    href="https://wa.me/919272188068"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-brand transition-colors"
-                  >
-                    092721 88068
-                  </a>
-                ),
-              },
-            ].map(({ Icon, label, content }) => (
-              <div
-                key={label}
-                className="flex gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 shadow-sm"
-              >
-                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center shrink-0">
-                  <Icon size={18} className="text-brand" />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-0.5">
-                    {label}
-                  </p>
-                  <div className="text-sm text-gray-700 dark:text-gray-300">{content}</div>
+            <div className="flex gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center shrink-0">
+                <HiLocationMarker size={18} className="text-brand" />
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+                  Head office
+                </p>
+                <a
+                  href={INSTITUTE_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-700 dark:text-gray-300 hover:text-brand cursor-pointer"
+                >
+                  {HEAD_OFFICE_ADDRESS}
+                </a>
+              </div>
+            </div>
+            <div className="flex gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center shrink-0">
+                <HiLocationMarker size={18} className="text-brand" />
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+                  Devrukh branch
+                </p>
+                <p className="text-sm text-gray-700 dark:text-gray-300">{DEVRUKH_BRANCH_ADDRESS}</p>
+              </div>
+            </div>
+            <div className="flex gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center shrink-0">
+                <HiLocationMarker size={18} className="text-brand" />
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+                  Our branches
+                </p>
+                <p className="text-sm text-gray-700 dark:text-gray-300">{BRANCH_LOCATIONS}</p>
+              </div>
+            </div>
+            <div className="flex gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center shrink-0">
+                <HiPhone size={18} className="text-brand" />
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+                  Phone
+                </p>
+                <div className="text-sm text-gray-700 dark:text-gray-300 flex flex-col gap-1">
+                  {CONTACT_PHONES.map(({ tel, display }) => (
+                    <a key={tel} href={`tel:${tel}`} className="hover:text-brand cursor-pointer">
+                      {display}
+                    </a>
+                  ))}
                 </div>
               </div>
-            ))}
+            </div>
+            <div className="flex gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center shrink-0">
+                <FaWhatsapp size={18} className="text-brand" />
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+                  WhatsApp
+                </p>
+                <a
+                  href="https://wa.me/919272188068"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm hover:text-brand cursor-pointer"
+                >
+                  9272188068
+                </a>
+              </div>
+            </div>
           </div>
 
           <div className="rounded-xl overflow-hidden shadow-sm flex-1 min-h-[200px]">
@@ -204,9 +240,13 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* Form */}
         <div className="lg:col-span-3">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 md:p-8">
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-5 pb-4 border-b border-gray-200 dark:border-gray-700">
+              <span className="font-semibold text-gray-800 dark:text-gray-200">Required fields</span>
+              {' '}are marked with a red asterisk (<Req />
+              ). Email and course are optional.
+            </p>
             {submitted && (
               <div className="mb-5 px-4 py-3 rounded-lg bg-green-50 dark:bg-green-900/30
                               border border-green-200 dark:border-green-700 text-green-700 dark:text-green-300 text-sm">
@@ -232,59 +272,75 @@ const ContactSection = () => {
                 className="sr-only"
                 aria-hidden
               />
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">First Name</label>
+              <div className="sm:col-span-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Name
+                  <Req />
+                </label>
                 <input
-                  name="firstName"
-                  value={form.firstName}
+                  name="name"
+                  value={form.name}
                   onChange={handleChange}
                   required
-                  placeholder="Enter first name"
-                  autoComplete="given-name"
-                  aria-invalid={!!fe.firstName}
-                  className={`form-input ${fe.firstName ? inputErrorClass : ''}`}
+                  placeholder="Full name"
+                  autoComplete="name"
+                  aria-invalid={!!fe.name}
+                  className={`form-input ${fe.name ? inputErrorClass : ''}`}
                 />
-                {fe.firstName && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.firstName}</p>}
+                {fe.name && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.name}</p>}
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Last Name</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Parent&apos;s contact number
+                  <Req />
+                </label>
                 <input
-                  name="lastName"
-                  value={form.lastName}
-                  onChange={handleChange}
-                  required
-                  placeholder="Enter last name"
-                  autoComplete="family-name"
-                  aria-invalid={!!fe.lastName}
-                  className={`form-input ${fe.lastName ? inputErrorClass : ''}`}
-                />
-                {fe.lastName && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.lastName}</p>}
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Contact No.</label>
-                <input
-                  name="phone"
+                  name="parentPhone"
                   type="tel"
                   inputMode="numeric"
-                  value={form.phone}
+                  value={form.parentPhone}
                   onChange={handleChange}
                   required
-                  placeholder="10-digit mobile (e.g. 9876543210)"
+                  placeholder="10-digit mobile"
                   autoComplete="tel"
-                  aria-invalid={!!fe.phone}
-                  className={`form-input ${fe.phone ? inputErrorClass : ''}`}
+                  aria-invalid={!!fe.parentPhone}
+                  className={`form-input ${fe.parentPhone ? inputErrorClass : ''}`}
                 />
-                {fe.phone && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.phone}</p>}
+                {fe.parentPhone && (
+                  <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.parentPhone}</p>
+                )}
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email ID</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Student&apos;s contact number
+                  <Req />
+                </label>
+                <input
+                  name="studentPhone"
+                  type="tel"
+                  inputMode="numeric"
+                  value={form.studentPhone}
+                  onChange={handleChange}
+                  required
+                  placeholder="10-digit mobile"
+                  autoComplete="tel"
+                  aria-invalid={!!fe.studentPhone}
+                  className={`form-input ${fe.studentPhone ? inputErrorClass : ''}`}
+                />
+                {fe.studentPhone && (
+                  <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.studentPhone}</p>
+                )}
+              </div>
+              <div className="sm:col-span-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Email ID
+                </label>
                 <input
                   name="email"
                   type="email"
                   value={form.email}
                   onChange={handleChange}
-                  required
-                  placeholder="name@example.com"
+                  placeholder="name@example.com (optional)"
                   autoComplete="email"
                   aria-invalid={!!fe.email}
                   className={`form-input ${fe.email ? inputErrorClass : ''}`}
@@ -292,7 +348,50 @@ const ContactSection = () => {
                 {fe.email && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.email}</p>}
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Medium</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Branch
+                  <Req />
+                </label>
+                <select
+                  name="branch"
+                  value={form.branch}
+                  onChange={handleChange}
+                  required
+                  aria-invalid={!!fe.branch}
+                  className={`form-input ${fe.branch ? inputErrorClass : ''}`}
+                >
+                  <option value="">Select branch</option>
+                  {ENQUIRY_BRANCH_OPTIONS.map(({ value, label }) => (
+                    <option key={value} value={value}>
+                      {label}
+                    </option>
+                  ))}
+                </select>
+                {fe.branch && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.branch}</p>}
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Course</label>
+                <select
+                  name="course"
+                  value={form.course}
+                  onChange={handleChange}
+                  aria-invalid={!!fe.course}
+                  className={`form-input ${fe.course ? inputErrorClass : ''}`}
+                >
+                  <option value="">Select course (optional)</option>
+                  {ENQUIRY_COURSE_OPTIONS.map(({ value, label }) => (
+                    <option key={value} value={value}>
+                      {label}
+                    </option>
+                  ))}
+                </select>
+                {fe.course && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.course}</p>}
+              </div>
+              <div className="sm:col-span-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Medium
+                  <Req />
+                </label>
                 <select
                   name="medium"
                   value={form.medium}
@@ -308,25 +407,8 @@ const ContactSection = () => {
                 </select>
                 {fe.medium && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.medium}</p>}
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Standard</label>
-                <select
-                  name="standard"
-                  value={form.standard}
-                  onChange={handleChange}
-                  required
-                  aria-invalid={!!fe.standard}
-                  className={`form-input ${fe.standard ? inputErrorClass : ''}`}
-                >
-                  <option value="">Select Standard</option>
-                  <option value="8th">8th</option>
-                  <option value="9th">9th</option>
-                  <option value="10th">10th</option>
-                </select>
-                {fe.standard && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.standard}</p>}
-              </div>
               <div className="sm:col-span-2">
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Your Message</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
                 <textarea
                   name="message"
                   value={form.message}
@@ -339,7 +421,7 @@ const ContactSection = () => {
                 />
                 <div className="flex justify-between gap-2 mt-1">
                   {fe.message ? (
-                    <p className="text-xs text-red-600 dark:text-red-400">{fe.message}</p>
+                    <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.message}</p>
                   ) : (
                     <span />
                   )}

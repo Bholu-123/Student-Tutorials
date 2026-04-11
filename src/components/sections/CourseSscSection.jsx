@@ -94,6 +94,7 @@ const CourseSscSection = () => {
         {BATCH_TYPES.map(({ key, label }) => (
           <button
             key={key}
+            type="button"
             onClick={() => setActive(key)}
             className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200
               ${active === key

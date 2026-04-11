@@ -7,7 +7,7 @@
  * 3. Open your Sheet → Share → add the service account email as Editor.
  * 4. Copy the Sheet ID from the URL: docs.google.com/spreadsheets/d/{SHEET_ID}/edit
  * 5. Row 1 in the sheet: headers (optional but recommended):
- *    Submitted At | First Name | Last Name | Phone | Email | Medium | Standard | Message | Page URL
+ *    Submitted At | Name | Parent Phone | Student Phone | Email | Branch | Course | Medium | Message | Page URL
  * 6. Vercel → Project → Settings → Environment Variables:
  *    GOOGLE_SHEET_ID, GOOGLE_CLIENT_EMAIL, GOOGLE_PRIVATE_KEY, GOOGLE_SHEET_TAB (optional, default Sheet1)
  */
@@ -81,28 +81,30 @@ module.exports = async (req, res) => {
   }
 
   const {
-    firstName,
-    lastName,
-    phone,
+    name,
+    parentPhone,
+    studentPhone,
     email,
+    branch,
+    course,
     medium,
-    standard,
     message,
   } = clean;
   const pageUrl = String(body.pageUrl ?? '').trim().slice(0, 2000);
 
   const tab = process.env.GOOGLE_SHEET_TAB || 'Sheet1';
-  const range = sheetA1Range(tab, 'A:I');
+  const range = sheetA1Range(tab, 'A:J');
   const submittedAt = formatSubmittedAt();
 
   const row = [
     submittedAt,
-    firstName,
-    lastName,
-    phone,
+    name,
+    parentPhone,
+    studentPhone,
     email,
+    branch,
+    course,
     medium,
-    standard,
     message,
     pageUrl,
   ];

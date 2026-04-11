@@ -10,6 +10,7 @@ const GalleryClassroomPage = lazy(() => import('../pages/GalleryClassroomPage'))
 const GalleryEventsPage = lazy(() => import('../pages/GalleryEventsPage'));
 const GalleryCelebrationsPage = lazy(() => import('../pages/GalleryCelebrationsPage'));
 const Course8thPage = lazy(() => import('../pages/Course8thPage'));
+const CourseJeeNeetPage = lazy(() => import('../pages/CourseJeeNeetPage'));
 
 const PageSpinner = () => (
   <div className="flex justify-center items-center py-32">
@@ -22,7 +23,7 @@ const AppRoutes = () => (
     <Routes>
       {/*
         Real routes must come before legacy redirects. Router matching is case-insensitive
-        by default, so path="/SSC" would otherwise steal /ssc and render Navigate only.
+        by default, so legacy "/SSC" must redirect after real routes (e.g. /courses/ssc).
       */}
       <Route path={PATHS.HOME} element={<HomePage />} />
       <Route path={PATHS.GALLERY} element={<GalleryPage />} />
@@ -33,6 +34,7 @@ const AppRoutes = () => (
         element={<CourseSscPage />}
       />
       <Route path={PATHS.COURSE_8TH_9TH} element={<Course8thPage />} />
+      <Route path={PATHS.COURSE_JEE_NEET} element={<CourseJeeNeetPage />} />
       <Route path={PATHS.GALLERY_CLASSROOM} element={<GalleryClassroomPage />} />
       <Route path={PATHS.GALLERY_EVENTS} element={<GalleryEventsPage />} />
       <Route path={PATHS.GALLERY_CELEBRATIONS} element={<GalleryCelebrationsPage />} />

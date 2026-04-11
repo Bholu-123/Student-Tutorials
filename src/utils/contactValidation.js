@@ -54,6 +54,15 @@ export function messageContainsAbuse(text) {
   return false;
 }
 
+export function validatePersonName(v) {
+  const s = String(v ?? '').trim();
+  if (s.length < 2) return 'Name is required';
+  if (s.length > 120) return 'Name is too long';
+  if (/[<>{}[\]\\]/.test(s)) return 'Remove special characters from name';
+  return '';
+}
+
+/** @deprecated use validatePersonName */
 export function validateFirstName(v) {
   const s = String(v ?? '').trim();
   if (s.length < 1) return 'First name is required';
@@ -62,6 +71,7 @@ export function validateFirstName(v) {
   return '';
 }
 
+/** @deprecated use validatePersonName */
 export function validateLastName(v) {
   const s = String(v ?? '').trim();
   if (s.length < 1) return 'Last name is required';
@@ -70,12 +80,24 @@ export function validateLastName(v) {
   return '';
 }
 
-export function validatePhoneField(v) {
-  if (!String(v ?? '').trim()) return 'Contact number is required';
+export function validateEmailOptional(v) {
+  const s = String(v ?? '').trim();
+  if (!s) return '';
+  if (!isValidEmail(s)) return 'Enter a valid email address';
+  return '';
+}
+
+export function validatePhoneRequired(v, fieldLabel) {
+  if (!String(v ?? '').trim()) return `${fieldLabel} is required`;
   if (!isValidPhone(v)) {
     return 'Enter a valid 10-digit mobile (e.g. 9876543210) or +country code for international';
   }
   return '';
+}
+
+/** @deprecated use validatePhoneRequired for explicit labels */
+export function validatePhoneField(v) {
+  return validatePhoneRequired(v, 'Contact number');
 }
 
 export function validateEmailField(v) {

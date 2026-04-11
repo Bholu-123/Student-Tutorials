@@ -2,24 +2,34 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { HiMenu, HiX, HiSun, HiMoon } from 'react-icons/hi';
 import { useTheme } from '../../context/ThemeContext';
-import { PATHS, isCoursesNavActive, isGalleryNavActive } from '../../routes/paths';
+import {
+  PATHS,
+  COURSES_SECTION_TO,
+  isCoursesNavActive,
+  isGalleryNavActive,
+} from '../../routes/paths';
 import { BRAND } from '../../constants/mediaPaths';
 
-const NAV_LINKS = [
-  { to: PATHS.HOME, label: 'Home', end: true, isActive: (p) => p === PATHS.HOME },
+const navLinks = (pathname, hash) => [
   {
-    to: PATHS.COURSE_SSC,
+    to: PATHS.HOME,
+    label: 'Home',
+    end: true,
+    isActive: () => pathname === PATHS.HOME && hash !== '#courses',
+  },
+  {
+    to: COURSES_SECTION_TO,
     label: 'Courses',
     end: false,
-    isActive: isCoursesNavActive,
+    isActive: () => isCoursesNavActive(pathname, hash),
   },
   {
     to: PATHS.GALLERY,
     label: 'Gallery',
     end: false,
-    isActive: isGalleryNavActive,
+    isActive: () => isGalleryNavActive(pathname),
   },
-  { to: PATHS.CONTACT, label: 'Contact', end: false, isActive: (p) => p === PATHS.CONTACT },
+  { to: PATHS.CONTACT, label: 'Contact', end: false, isActive: () => pathname === PATHS.CONTACT },
 ];
 
 const linkBase =
@@ -29,7 +39,8 @@ const linkInactive = 'text-gray-700 dark:text-gray-200 border-transparent hover:
 
 const Navbar = () => {
   const { isDark, toggle } = useTheme();
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
+  const NAV_LINKS = navLinks(pathname, hash);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -73,12 +84,12 @@ const Navbar = () => {
           {/* Desktop links */}
           <ul className="hidden md:flex items-center gap-1 list-none m-0 p-0">
             {NAV_LINKS.map(({ to, label, end, isActive }) => (
-              <li key={to}>
+              <li key={label}>
                 <NavLink
                   to={to}
                   end={end}
                   className={() =>
-                    `${linkBase} ${isActive(pathname) ? linkActive : linkInactive}`
+                    `${linkBase} ${isActive() ? linkActive : linkInactive}`
                   }
                 >
                   {label}
@@ -119,14 +130,14 @@ const Navbar = () => {
         >
           <ul className="flex flex-col gap-1 pt-2 border-t border-gray-100 dark:border-gray-800 list-none m-0 p-0">
             {NAV_LINKS.map(({ to, label, end, isActive }) => (
-              <li key={to}>
+              <li key={label}>
                 <NavLink
                   to={to}
                   end={end}
                   onClick={closeMenu}
                   className={() =>
                     `block px-4 py-3 rounded-lg text-base font-medium transition-colors duration-200 cursor-pointer
-                     ${isActive(pathname)
+                     ${isActive()
                        ? 'text-brand bg-brand/5'
                        : 'text-gray-700 dark:text-gray-200 hover:text-brand hover:bg-brand/5 dark:hover:text-brand-light'
                      }`

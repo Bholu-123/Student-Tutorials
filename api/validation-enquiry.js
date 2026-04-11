@@ -82,7 +82,7 @@ function messageContainsAbuse(text) {
 
 function validateName(raw, label) {
   const s = String(raw ?? '').trim();
-  if (s.length < 1 || s.length > 80) return `${label} must be 1–80 characters`;
+  if (s.length < 2 || s.length > 120) return `${label} must be 2–120 characters`;
   if (/[<>{}[\]\\]/.test(s)) return `${label} contains invalid characters`;
   return null;
 }
@@ -90,21 +90,33 @@ function validateName(raw, label) {
 function validateEnquiry(body) {
   if (!body || typeof body !== 'object') return { error: 'Invalid request' };
 
-  const { firstName, lastName, phone, email, medium, standard, message = '' } = body;
+  const {
+    name,
+    parentPhone,
+    studentPhone,
+    email = '',
+    medium,
+    branch,
+    course = '',
+    message = '',
+  } = body;
 
-  if (!firstName || !lastName || !phone || !email || !medium || !standard) {
+  if (!name || !parentPhone || !studentPhone || !medium || !branch) {
     return { error: 'Please fill all required fields' };
   }
 
-  let err = validateName(firstName, 'First name');
-  if (err) return { error: err };
-  err = validateName(lastName, 'Last name');
+  let err = validateName(name, 'Name');
   if (err) return { error: err };
 
-  if (!isValidPhone(phone)) {
-    return { error: 'Enter a valid 10-digit Indian mobile number, or international number with country code (+…)' };
+  if (!isValidPhone(parentPhone)) {
+    return { error: "Enter a valid parent's phone (10-digit Indian mobile or +country code)" };
   }
-  if (!isValidEmail(email)) {
+  if (!isValidPhone(studentPhone)) {
+    return { error: "Enter a valid student's phone (10-digit Indian mobile or +country code)" };
+  }
+
+  const emailTrim = String(email).trim();
+  if (emailTrim && !isValidEmail(emailTrim)) {
     return { error: 'Enter a valid email address' };
   }
 
@@ -115,12 +127,13 @@ function validateEnquiry(body) {
 
   return {
     clean: {
-      firstName: String(firstName).trim().slice(0, 80),
-      lastName: String(lastName).trim().slice(0, 80),
-      phone: String(phone).trim().slice(0, 32),
-      email: String(email).trim().slice(0, 254),
+      name: String(name).trim().slice(0, 120),
+      parentPhone: String(parentPhone).trim().slice(0, 32),
+      studentPhone: String(studentPhone).trim().slice(0, 32),
+      email: emailTrim.slice(0, 254),
       medium: String(medium).trim().slice(0, 64),
-      standard: String(standard).trim().slice(0, 32),
+      branch: String(branch).trim().slice(0, 64),
+      course: String(course).trim().slice(0, 64),
       message: cleanMessage,
     },
   };

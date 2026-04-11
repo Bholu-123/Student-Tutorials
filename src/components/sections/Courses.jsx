@@ -4,16 +4,18 @@ import SectionWrapper from '../common/SectionWrapper';
 import Button from '../common/Button';
 import { COURSES } from '../../constants/courses';
 
-const CourseCard = ({ image, title, description, slug }) => (
-  <div
+const CourseCard = ({ image, title, description, to }) => (
+  <Link
+    to={to}
     className="flex flex-col md:flex-row rounded-2xl overflow-hidden
-               bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300"
+               bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300
+               text-left cursor-pointer group outline-none focus-visible:ring-2 focus-visible:ring-brand"
   >
     <div className="md:w-2/5 h-56 md:h-auto overflow-hidden">
       <img
         src={image}
         alt={title}
-        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
     </div>
     <div className="flex flex-col justify-center p-6 md:w-3/5">
@@ -22,21 +24,23 @@ const CourseCard = ({ image, title, description, slug }) => (
         {description}
       </p>
       <div>
-        <Link to={`/${slug}`}>
-          <Button size="sm">Learn More</Button>
-        </Link>
+        <span className="inline-block">
+          <Button size="sm" className="pointer-events-none">
+            Learn More
+          </Button>
+        </span>
       </div>
     </div>
-  </div>
+  </Link>
 );
 
 const Courses = () => (
   <SectionWrapper id="courses">
     <h2 className="section-title">Courses Offered</h2>
     <div className="title-divider" />
-    <div className="flex flex-col gap-8 max-w-3xl mx-auto">
+    <div className="flex flex-col gap-8 max-w-4xl mx-auto">
       {COURSES.map((c) => (
-        <CourseCard key={c.slug} {...c} />
+        <CourseCard key={c.to} {...c} />
       ))}
     </div>
   </SectionWrapper>

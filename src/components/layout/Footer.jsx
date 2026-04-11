@@ -2,12 +2,14 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaFacebookF, FaInstagram, FaTwitter, FaGoogle } from 'react-icons/fa';
 import { HiPhone, HiMail, HiLocationMarker } from 'react-icons/hi';
-import { PATHS } from '../../routes/paths';
+import { PATHS, COURSES_SECTION_TO } from '../../routes/paths';
 import { BRAND } from '../../constants/mediaPaths';
-
-/** Institute on Google Maps (Student's Tutorial, Chiplun). */
-const INSTITUTE_MAPS_URL =
-  'https://www.google.com/maps?ll=17.532567,73.522072&z=15&t=m&hl=en&gl=IN&mapclient=embed&cid=13857009869368808141';
+import {
+  INSTITUTE_MAPS_URL,
+  HEAD_OFFICE_ADDRESS,
+  DEVRUKH_BRANCH_ADDRESS,
+  CONTACT_PHONES,
+} from '../../constants/contactInfo';
 
 const SOCIAL = [
   { Icon: FaFacebookF, href: 'https://www.facebook.com/', label: 'Facebook' },
@@ -19,11 +21,11 @@ const SOCIAL = [
 const INSTITUTE_LINKS = [
   { to: PATHS.HOME, label: 'Home' },
   { to: PATHS.GALLERY, label: 'Gallery' },
-  { to: PATHS.COURSE_SSC, label: 'Courses' },
+  { to: COURSES_SECTION_TO, label: 'Courses' },
 ];
 
 const SERVICE_LINKS = [
-  { to: PATHS.COURSE_SSC, label: 'Courses' },
+  { to: COURSES_SECTION_TO, label: 'Courses' },
   { to: PATHS.GALLERY_EVENTS, label: 'Our Events' },
   { to: PATHS.CONTACT, label: 'Contact Us' },
 ];
@@ -101,8 +103,11 @@ const Footer = () => (
           <h3 className="text-white font-semibold uppercase tracking-wider text-sm mb-4">
             Get In Touch
           </h3>
-          <ul className="space-y-3 text-sm list-none p-0 m-0">
+          <ul className="space-y-4 text-sm list-none p-0 m-0">
             <li>
+              <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-1">
+                Head office
+              </p>
               <a
                 href={INSTITUTE_MAPS_URL}
                 target="_blank"
@@ -112,22 +117,36 @@ const Footer = () => (
                            focus-visible:ring-brand focus-visible:ring-offset-2
                            focus-visible:ring-offset-gray-900"
               >
-                <HiLocationMarker size={18} className="text-brand flex-shrink-0 mt-0.5" aria-hidden />
-                <span>
-                  Ramtirth Markandi near municipal swimming pool,
-                  <br />
-                  Chiplun, Maharashtra 415605
+                <HiLocationMarker size={18} className="text-brand shrink-0 mt-0.5" aria-hidden />
+                <span>{HEAD_OFFICE_ADDRESS}</span>
+              </a>
+            </li>
+            <li>
+              <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-1">
+                Devrukh branch
+              </p>
+              <div className="flex gap-3 pl-0">
+                <HiLocationMarker size={18} className="text-brand shrink-0 mt-0.5" aria-hidden />
+                <span>{DEVRUKH_BRANCH_ADDRESS}</span>
+              </div>
+            </li>
+            <li className="flex flex-col gap-1.5">
+              <div className="flex items-center gap-3">
+                <HiPhone size={18} className="text-brand shrink-0" aria-hidden />
+                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                  Phone
                 </span>
-              </a>
+              </div>
+              <div className="pl-8 flex flex-col gap-1">
+                {CONTACT_PHONES.map(({ tel, display }) => (
+                  <a key={tel} href={`tel:${tel}`} className={linkRow}>
+                    {display}
+                  </a>
+                ))}
+              </div>
             </li>
             <li className="flex items-center gap-3">
-              <HiPhone size={18} className="text-brand flex-shrink-0" aria-hidden />
-              <a href="tel:+919272188068" className={`${linkRow} inline`}>
-                092721 88068
-              </a>
-            </li>
-            <li className="flex items-center gap-3">
-              <HiMail size={18} className="text-brand flex-shrink-0" aria-hidden />
+              <HiMail size={18} className="text-brand shrink-0" aria-hidden />
               <a href="mailto:info@studentstutorial.com" className={`${linkRow} inline break-all`}>
                 info@studentstutorial.com
               </a>

@@ -27,10 +27,12 @@ function useSlidesToShow() {
 }
 
 const TestimonialCard = ({ image, name, text }) => (
-  <div className="px-2 sm:px-3 h-full min-w-0">
-    <div className="flex flex-col h-full p-5 sm:p-6 rounded-2xl
-                    bg-white dark:bg-gray-800 shadow-md border border-gray-100 dark:border-gray-700">
-      <div className="flex items-center gap-3 sm:gap-4 mb-4 min-w-0">
+  <div className="px-2 sm:px-3 h-full min-w-0 flex">
+    <div
+      className="flex flex-col flex-1 min-h-[18rem] sm:min-h-[19rem] lg:min-h-[20rem] p-5 sm:p-6 rounded-2xl
+                    bg-white dark:bg-gray-800 shadow-md border border-gray-100 dark:border-gray-700"
+    >
+      <div className="flex items-center gap-3 sm:gap-4 mb-4 min-w-0 shrink-0">
         <img
           src={image}
           alt={name}
@@ -49,8 +51,8 @@ const TestimonialCard = ({ image, name, text }) => (
           </div>
         </div>
       </div>
-      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed italic flex-1 wrap-break-word">
-        "{text}"
+      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed flex-1 wrap-break-word min-h-0">
+        {text}
       </p>
     </div>
   </div>
@@ -70,7 +72,7 @@ const Testimonials = () => {
       autoplaySpeed: 2500,
       pauseOnHover: true,
       arrows: false,
-      adaptiveHeight: true,
+      adaptiveHeight: false,
     }),
     [slidesToShow]
   );

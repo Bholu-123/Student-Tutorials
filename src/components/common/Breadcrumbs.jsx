@@ -4,8 +4,8 @@ import { HiChevronRight, HiHome } from 'react-icons/hi';
 import { PATHS } from '../../routes/paths';
 
 /**
- * @param {{ items: Array<{ to?: string, label: string }> }} props
- * items: trail after Home — use { to, label } for links, { label } only for current page.
+ * @param {{ items: Array<{ to?: string | object, label: string }> }} props
+ * items: trail after Home — use { to, label } for links (`to` may include hash), { label } only for current page.
  */
 const Breadcrumbs = ({ items }) => (
   <nav aria-label="Breadcrumb" className="mb-8">

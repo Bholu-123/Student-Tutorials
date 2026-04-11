@@ -21,4 +21,9 @@ export const FEATURES = [
     title: 'Tests & Assessment',
     para: 'Carefully curated assessments to reflect what a real day of exam might look like, filled with variety and appropriate difficulty.',
   },
+  {
+    image: `${GALLERY.features}/5.jpg`,
+    title: 'CCTV Surveillance',
+    para: 'Campus and classroom areas monitored with CCTV so parents and students can learn in a safe, accountable environment.',
+  },
 ];
