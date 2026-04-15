@@ -98,10 +98,11 @@ function validateEnquiry(body) {
     medium,
     branch,
     course = '',
+    board,
     message = '',
   } = body;
 
-  if (!name || !parentPhone || !studentPhone || !medium || !branch) {
+  if (!name || !parentPhone || !studentPhone || !medium || !branch || !board) {
     return { error: 'Please fill all required fields' };
   }
 
@@ -134,6 +135,7 @@ function validateEnquiry(body) {
       medium: String(medium).trim().slice(0, 64),
       branch: String(branch).trim().slice(0, 64),
       course: String(course).trim().slice(0, 64),
+      board: String(board).trim().slice(0, 32),
       message: cleanMessage,
     },
   };

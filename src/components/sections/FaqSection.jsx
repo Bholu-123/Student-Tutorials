@@ -21,10 +21,10 @@ const FaqItem = ({ question, answer, isOpen, onToggle }) => (
     </button>
     <div
       className={`overflow-hidden transition-all duration-300 ease-in-out ${
-        isOpen ? 'max-h-60' : 'max-h-0'
+        isOpen ? 'max-h-[44rem]' : 'max-h-0'
       }`}
     >
-      <p className="px-5 py-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed
+      <p className="px-5 py-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line
                     border-t border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800">
         {answer}
       </p>
@@ -32,15 +32,15 @@ const FaqItem = ({ question, answer, isOpen, onToggle }) => (
   </div>
 );
 
-const FaqSection = () => {
+const FaqSection = ({ id = 'faq', title = 'Frequently Asked Questions', items = FAQ_ITEMS }) => {
   const [activeId, setActiveId] = useState(null);
 
   return (
-    <SectionWrapper id="faq">
-      <h2 className="section-title">Frequently Asked Questions</h2>
+    <SectionWrapper id={id}>
+      <h2 className="section-title">{title}</h2>
       <div className="title-divider" />
       <div className="max-w-3xl mx-auto flex flex-col gap-3">
-        {FAQ_ITEMS.map((item) => (
+        {items.map((item) => (
           <FaqItem
             key={item.id}
             question={item.question}

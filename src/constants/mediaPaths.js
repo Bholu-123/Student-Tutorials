@@ -9,7 +9,6 @@ export const GALLERY = {
 };
 
 export const BRAND = {
-  logo: '/brand/logo.png',
-  logoSvg: '/brand/LOGO.svg',
+  logo: '/brand/logo.jpeg',
   favicon: '/brand/favicon.ico',
 };

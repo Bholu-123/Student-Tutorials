@@ -23,8 +23,8 @@ const HomePage = () => {
   return (
     <>
       <Hero />
-      <Features />
       <Courses />
+      <Features />
       <Testimonials />
       <FaqSection />
       <ContactSection />

@@ -78,7 +78,7 @@ const Testimonials = () => {
   );
 
   return (
-    <SectionWrapper id="testimonials" className="bg-gray-50 dark:bg-gray-900">
+    <SectionWrapper id="testimonials">
       <h2 className="section-title">What Our Students Say</h2>
       <div className="title-divider" />
       <div className="testimonials-slider -mx-1 sm:mx-0">

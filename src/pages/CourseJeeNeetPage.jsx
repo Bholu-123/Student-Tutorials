@@ -1,6 +1,8 @@
 import React from 'react';
 import Breadcrumbs from '../components/common/Breadcrumbs';
 import CourseJeeNeetSection from '../components/sections/CourseJeeNeetSection';
+import FaqSection from '../components/sections/FaqSection';
+import { COURSE_FAQ_JEE_NEET } from '../constants/faq';
 import { COURSES_SECTION_TO } from '../routes/paths';
 
 const CourseJeeNeetPage = () => (
@@ -14,6 +16,11 @@ const CourseJeeNeetPage = () => (
       />
     </div>
     <CourseJeeNeetSection />
+    <FaqSection
+      id="faq-jee-neet"
+      title="JEE / NEET / CET FAQs"
+      items={COURSE_FAQ_JEE_NEET}
+    />
   </>
 );
 

@@ -19,7 +19,7 @@ const FeatureCard = ({ image, title, para }) => (
 );
 
 const Features = () => (
-  <SectionWrapper id="features" className="bg-gray-50 dark:bg-gray-900">
+  <SectionWrapper id="features">
     <h2 className="section-title">Our Salient Features</h2>
     <div className="title-divider" />
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">

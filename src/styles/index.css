@@ -5,9 +5,10 @@
 
 /* ── Brand colour tokens ───────────────────────────────────────────── */
 @theme {
-  --color-brand:       #a82682;
-  --color-brand-light: #c236a0;
-  --color-brand-dark:  #8a1e6a;
+  /* Matched to banner border/lime accent family */
+  --color-brand:       #9fbe11;
+  --color-brand-light: #b8d72a;
+  --color-brand-dark:  #819b0d;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
@@ -19,7 +20,12 @@
   }
 
   body {
-    @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300 font-sans;
+    @apply text-gray-900 dark:text-gray-100 transition-colors duration-300 font-sans;
+    background-color: #f7fae8;
+  }
+
+  .dark body {
+    background-color: #1f2611;
   }
 
   *,

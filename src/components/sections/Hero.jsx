@@ -27,22 +27,20 @@ const Hero = () => {
   }, [next]);
 
   return (
-    <div className="relative w-full overflow-hidden bg-gray-900">
-      {/* Wide banners + object-cover crop the sides on narrow screens; below lg use contain so the full artwork fits. */}
+    <div className="relative w-full overflow-hidden bg-[#f7fae8] dark:bg-[#1f2611]">
+      {/* Keep full banner visible on all screens (no crop). */}
       <div
-        className="relative w-full min-h-[240px] max-h-[640px]
-                   h-[min(58vw,480px)] lg:h-[55vw] lg:max-h-[640px]"
+        className="relative w-full aspect-[16/8] min-h-[220px] max-h-[640px]"
       >
         {SLIDES.map((slide, i) => (
           <img
             key={slide.src}
             src={slide.src}
             alt={slide.alt}
-            className={`absolute inset-0 w-full h-full object-contain lg:object-cover transition-opacity duration-700
+            className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-700
               ${i === current ? 'opacity-100' : 'opacity-0'}`}
           />
         ))}
-        <div className="absolute inset-0 bg-black/40 pointer-events-none" />
       </div>
 
       <button
@@ -50,7 +48,7 @@ const Hero = () => {
         onClick={prev}
         aria-label="Previous slide"
         className="absolute left-3 top-1/2 -translate-y-1/2 z-10 cursor-pointer
-                   w-10 h-10 rounded-full bg-white/20 hover:bg-white/40
+                   w-10 h-10 rounded-full bg-brand-dark/80 hover:bg-brand-dark
                    flex items-center justify-center text-white transition"
       >
         <HiChevronLeft size={22} />
@@ -60,7 +58,7 @@ const Hero = () => {
         onClick={next}
         aria-label="Next slide"
         className="absolute right-3 top-1/2 -translate-y-1/2 z-10 cursor-pointer
-                   w-10 h-10 rounded-full bg-white/20 hover:bg-white/40
+                   w-10 h-10 rounded-full bg-brand-dark/80 hover:bg-brand-dark
                    flex items-center justify-center text-white transition"
       >
         <HiChevronRight size={22} />
@@ -74,7 +72,9 @@ const Hero = () => {
             onClick={() => setCurrent(i)}
             aria-label={`Go to slide ${i + 1}`}
             className={`w-2.5 h-2.5 rounded-full cursor-pointer transition-all duration-300 ${
-              i === current ? 'bg-brand scale-125' : 'bg-white/60 hover:bg-white'
+              i === current
+                ? 'bg-brand-dark scale-125'
+                : 'bg-brand/40 hover:bg-brand/70'
             }`}
           />
         ))}

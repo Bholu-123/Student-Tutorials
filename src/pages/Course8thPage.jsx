@@ -1,6 +1,8 @@
 import React from 'react';
 import Breadcrumbs from '../components/common/Breadcrumbs';
 import Course8thSection from '../components/sections/Course8thSection';
+import FaqSection from '../components/sections/FaqSection';
+import { COURSE_FAQ_8TH_9TH } from '../constants/faq';
 import { COURSES_SECTION_TO } from '../routes/paths';
 
 const Course8thPage = () => (
@@ -14,6 +16,11 @@ const Course8thPage = () => (
       />
     </div>
     <Course8thSection />
+    <FaqSection
+      id="faq-8th-9th"
+      title="Class 8th & 9th FAQs"
+      items={COURSE_FAQ_8TH_9TH}
+    />
   </>
 );
 

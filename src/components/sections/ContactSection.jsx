@@ -26,6 +26,7 @@ const INITIAL = {
   email: '',
   branch: '',
   course: '',
+  board: '',
   medium: '',
   message: '',
 };
@@ -37,6 +38,7 @@ const INITIAL_FIELD_ERRORS = {
   email: '',
   branch: '',
   course: '',
+  board: '',
   medium: '',
   message: '',
 };
@@ -66,6 +68,7 @@ const ContactSection = () => {
   const runValidation = () => {
     const mediumErr = !form.medium.trim() ? 'Please select a medium' : '';
     const branchErr = !form.branch.trim() ? 'Please select a branch' : '';
+    const boardErr = !form.board.trim() ? 'Please select a board' : '';
     const errs = {
       name: validatePersonName(form.name),
       parentPhone: validatePhoneRequired(form.parentPhone, "Parent's contact number"),
@@ -73,6 +76,7 @@ const ContactSection = () => {
       email: validateEmailOptional(form.email),
       branch: branchErr,
       course: '',
+      board: boardErr,
       medium: mediumErr,
       message: validateMessageField(form.message),
     };
@@ -105,6 +109,7 @@ const ContactSection = () => {
           email: form.email.trim(),
           branch: form.branch,
           course: form.course.trim(),
+          board: form.board,
           medium: form.medium,
           message: cleanMessage,
           pageUrl: typeof window !== 'undefined' ? window.location.href : '',
@@ -133,7 +138,7 @@ const ContactSection = () => {
   const fe = fieldErrors;
 
   return (
-    <SectionWrapper id="contact" className="bg-gray-50 dark:bg-gray-900">
+    <SectionWrapper id="contact">
       <h2 className="section-title">Contact Us</h2>
       <div className="title-divider" />
 
@@ -253,7 +258,7 @@ const ContactSection = () => {
               </div>
             )}
             <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4" noValidate>
-              <div className="sm:col-span-2">
+              <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Name
                   <Req />
@@ -312,7 +317,7 @@ const ContactSection = () => {
                   <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.studentPhone}</p>
                 )}
               </div>
-              <div className="sm:col-span-2">
+              <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Email ID
                 </label>
@@ -368,7 +373,26 @@ const ContactSection = () => {
                 </select>
                 {fe.course && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.course}</p>}
               </div>
-              <div className="sm:col-span-2">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Board
+                  <Req />
+                </label>
+                <select
+                  name="board"
+                  value={form.board}
+                  onChange={handleChange}
+                  required
+                  aria-invalid={!!fe.board}
+                  className={`form-input ${fe.board ? inputErrorClass : ''}`}
+                >
+                  <option value="">Select board</option>
+                  <option value="State">State</option>
+                  <option value="CBSE">CBSE</option>
+                </select>
+                {fe.board && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.board}</p>}
+              </div>
+              <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Medium
                   <Req />
@@ -383,8 +407,7 @@ const ContactSection = () => {
                 >
                   <option value="">Select Medium</option>
                   <option value="English Medium">English Medium</option>
-                  <option value="Marathi Medium">Marathi Medium</option>
-                  <option value="Hindi Medium">Hindi Medium</option>
+                  <option value="Semi English">Semi English</option>
                 </select>
                 {fe.medium && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{fe.medium}</p>}
               </div>

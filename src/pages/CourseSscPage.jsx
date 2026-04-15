@@ -1,6 +1,8 @@
 import React from 'react';
 import Breadcrumbs from '../components/common/Breadcrumbs';
 import CourseSscSection from '../components/sections/CourseSscSection';
+import FaqSection from '../components/sections/FaqSection';
+import { COURSE_FAQ_SSC } from '../constants/faq';
 import { COURSES_SECTION_TO } from '../routes/paths';
 
 const CourseSscPage = () => (
@@ -14,6 +16,11 @@ const CourseSscPage = () => (
       />
     </div>
     <CourseSscSection />
+    <FaqSection
+      id="faq-ssc"
+      title="Class 10 (SSC/CBSE) FAQs"
+      items={COURSE_FAQ_SSC}
+    />
   </>
 );
 
