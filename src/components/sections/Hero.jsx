@@ -47,9 +47,9 @@ const Hero = () => {
         type="button"
         onClick={prev}
         aria-label="Previous slide"
-        className="absolute left-3 top-1/2 -translate-y-1/2 z-10 cursor-pointer
+        className="hidden sm:flex absolute left-3 top-1/2 -translate-y-1/2 z-10 cursor-pointer
                    w-10 h-10 rounded-full bg-brand-dark/80 hover:bg-brand-dark
-                   flex items-center justify-center text-white transition"
+                   items-center justify-center text-white transition"
       >
         <HiChevronLeft size={22} />
       </button>
@@ -57,9 +57,9 @@ const Hero = () => {
         type="button"
         onClick={next}
         aria-label="Next slide"
-        className="absolute right-3 top-1/2 -translate-y-1/2 z-10 cursor-pointer
+        className="hidden sm:flex absolute right-3 top-1/2 -translate-y-1/2 z-10 cursor-pointer
                    w-10 h-10 rounded-full bg-brand-dark/80 hover:bg-brand-dark
-                   flex items-center justify-center text-white transition"
+                   items-center justify-center text-white transition"
       >
         <HiChevronRight size={22} />
       </button>
