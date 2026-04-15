@@ -1,25 +1,15 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Architurn's",
+  "name": "Architurn's Student Tutorial",
   "icons": [
     {
-      "src": "brand/favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "brand/logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "brand/logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "brand/logo.jpeg",
+      "type": "image/jpeg",
+      "sizes": "512x512 192x192 180x180 128x128 64x64"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#9fbe11",
+  "background_color": "#f7fae8"
 }
