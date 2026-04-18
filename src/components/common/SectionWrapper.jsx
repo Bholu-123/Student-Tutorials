@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-const SectionWrapper = ({ id, className = '', children }) => (
+const SectionWrapper = forwardRef(({ id, className = '', children }, ref) => (
   <section
+    ref={ref}
     id={id}
     className={`py-16 md:py-20 px-4 sm:px-6 lg:px-8 ${className}`}
   >
-    <div className="max-w-7xl mx-auto">{children}</div>
+    <div className="mx-auto max-w-7xl">{children}</div>
   </section>
-);
+));
+
+SectionWrapper.displayName = 'SectionWrapper';
 
 export default SectionWrapper;
