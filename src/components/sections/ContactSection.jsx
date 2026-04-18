@@ -16,6 +16,7 @@ import {
   DEVRUKH_BRANCH_ADDRESS,
   BRANCH_LOCATIONS,
   CONTACT_PHONES,
+  WHATSAPP_CHAT_URL,
 } from '../../constants/contactInfo';
 import { ENQUIRY_BRANCH_OPTIONS, ENQUIRY_COURSE_OPTIONS } from '../../constants/enquiryCourses';
 
@@ -211,7 +212,7 @@ const ContactSection = () => {
                   WhatsApp
                 </p>
                 <a
-                  href="https://wa.me/919272188068"
+                  href={WHATSAPP_CHAT_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm hover:text-brand cursor-pointer"

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { HiPhone } from 'react-icons/hi';
+import { WHATSAPP_CHAT_URL } from '../../constants/contactInfo';
 import CallBackModal from './CallBackModal';
-
-const WHATSAPP_HREF = 'https://wa.me/919272188068';
 
 const FloatingContactRail = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -15,7 +14,7 @@ const FloatingContactRail = () => {
         style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
       >
         <a
-          href={WHATSAPP_HREF}
+          href={WHATSAPP_CHAT_URL}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"

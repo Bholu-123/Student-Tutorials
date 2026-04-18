@@ -16,3 +16,11 @@ export const CONTACT_PHONES = [
   { tel: '+917559121626', display: '7559121626' },
   { tel: '+919272188068', display: '9272188068' },
 ];
+
+/** E.164 without + (wa.me / WhatsApp send API). */
+export const WHATSAPP_PHONE_E164 = '919272188068';
+
+export const WHATSAPP_PREFILL_MESSAGE =
+  "Hello, I'm interested in learning more about Student's Tutorial. Could you please provide me with more details regarding the courses? Thank you!";
+
+export const WHATSAPP_CHAT_URL = `https://wa.me/${WHATSAPP_PHONE_E164}?text=${encodeURIComponent(WHATSAPP_PREFILL_MESSAGE)}`;
