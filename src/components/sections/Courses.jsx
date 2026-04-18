@@ -35,7 +35,7 @@ const CourseCard = ({ image, title, description, to }) => (
 );
 
 const Courses = () => (
-  <SectionWrapper id="courses">
+  <SectionWrapper id="courses" className="section-stripe-white">
     <h2 className="section-title">Courses Offered</h2>
     <div className="title-divider" />
     <div className="flex flex-col gap-8 max-w-4xl mx-auto">

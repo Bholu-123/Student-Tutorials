@@ -138,7 +138,7 @@ const ContactSection = () => {
   const fe = fieldErrors;
 
   return (
-    <SectionWrapper id="contact">
+    <SectionWrapper id="contact" className="section-stripe-white">
       <h2 className="section-title">Contact Us</h2>
       <div className="title-divider" />
 

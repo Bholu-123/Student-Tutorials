@@ -27,7 +27,7 @@ const Hero = () => {
   }, [next]);
 
   return (
-    <div className="relative w-full overflow-hidden bg-[#f7fae8] dark:bg-[#1f2611]">
+    <div className="section-stripe-theme relative w-full overflow-hidden">
       {/* Keep full banner visible on all screens (no crop). */}
       <div
         className="relative w-full aspect-[16/8] min-h-[220px] max-h-[640px]"

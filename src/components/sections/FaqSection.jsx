@@ -36,7 +36,7 @@ const FaqSection = ({ id = 'faq', title = 'Frequently Asked Questions', items = 
   const [activeId, setActiveId] = useState(null);
 
   return (
-    <SectionWrapper id={id}>
+    <SectionWrapper id={id} className="section-stripe-theme">
       <h2 className="section-title">{title}</h2>
       <div className="title-divider" />
       <div className="max-w-3xl mx-auto flex flex-col gap-3">

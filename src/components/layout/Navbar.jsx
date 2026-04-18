@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { HiMenu, HiX, HiSun, HiMoon } from 'react-icons/hi';
+import { HiMenu, HiX, HiSun, HiMoon, HiPhone, HiLocationMarker } from 'react-icons/hi';
 import { useTheme } from '../../context/ThemeContext';
 import {
   PATHS,
@@ -9,6 +9,7 @@ import {
   isGalleryNavActive,
 } from '../../routes/paths';
 import { BRAND } from '../../constants/mediaPaths';
+import { CONTACT_PHONES, INSTITUTE_MAPS_URL } from '../../constants/contactInfo';
 
 const navLinks = (pathname, hash) => [
   {
@@ -34,8 +35,9 @@ const navLinks = (pathname, hash) => [
 
 const linkBase =
   'px-4 py-2 text-base font-medium border-b-2 transition-colors duration-200 outline-none cursor-pointer';
-const linkActive   = 'text-brand border-brand';
-const linkInactive = 'text-gray-700 dark:text-gray-200 border-transparent hover:text-brand dark:hover:text-brand-light';
+const linkActive = 'text-brand border-brand';
+const linkInactive =
+  'text-gray-700 dark:text-gray-200 border-transparent hover:text-brand dark:hover:text-brand-light';
 
 const Navbar = () => {
   const { isDark, toggle } = useTheme();
@@ -46,6 +48,8 @@ const Navbar = () => {
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
+  const primaryPhone = CONTACT_PHONES[0];
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -54,21 +58,21 @@ const Navbar = () => {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [menuOpen]);
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+      className={`sticky top-0 z-50 w-full border-b border-gray-100/80 transition-all duration-300 dark:border-gray-800/80 ${
         scrolled
-          ? 'bg-white/95 dark:bg-gray-950/95 backdrop-blur-sm shadow-md'
+          ? 'bg-white/95 shadow-md backdrop-blur-sm dark:bg-gray-950/95'
           : 'bg-white dark:bg-gray-950'
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-
-          {/* Logo */}
+      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between gap-3">
           <NavLink
             to={PATHS.HOME}
             onClick={closeMenu}
@@ -81,16 +85,13 @@ const Navbar = () => {
             />
           </NavLink>
 
-          {/* Desktop links */}
-          <ul className="hidden md:flex items-center gap-1 list-none m-0 p-0">
+          <ul className="m-0 hidden list-none items-center gap-1 p-0 md:flex">
             {NAV_LINKS.map(({ to, label, end, isActive }) => (
               <li key={label}>
                 <NavLink
                   to={to}
                   end={end}
-                  className={() =>
-                    `${linkBase} ${isActive() ? linkActive : linkInactive}`
-                  }
+                  className={() => `${linkBase} ${isActive() ? linkActive : linkInactive}`}
                 >
                   {label}
                 </NavLink>
@@ -98,14 +99,37 @@ const Navbar = () => {
             ))}
           </ul>
 
-          {/* Theme toggle + hamburger */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <a
+              href={`tel:${primaryPhone.tel}`}
+              className="hidden cursor-pointer items-center gap-2.5 rounded-full py-1 pl-1 pr-2 outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 md:flex"
+            >
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e8f0d4] dark:bg-brand/20">
+                <HiPhone className="h-5 w-5 text-brand-dark dark:text-brand-light" aria-hidden />
+              </span>
+              <span className="flex min-w-0 flex-col text-left leading-tight">
+                <span className="text-xs text-gray-500 dark:text-gray-400">Call now</span>
+                <span className="text-sm font-bold text-gray-900 dark:text-white">
+                  {primaryPhone.display}
+                </span>
+              </span>
+            </a>
+
+            <a
+              href={INSTITUTE_MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open location in Google Maps"
+              className="hidden h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full bg-[#e8f0d4] outline-none transition hover:bg-[#dce8c4] focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 dark:bg-brand/20 dark:hover:bg-brand/30 md:flex"
+            >
+              <HiLocationMarker className="h-6 w-6 text-brand-dark dark:text-brand-light" aria-hidden />
+            </a>
+
             <button
               type="button"
               onClick={toggle}
               aria-label="Toggle dark mode"
-              className="p-2 rounded-lg text-gray-600 dark:text-gray-300 cursor-pointer
-                         hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full bg-[#e8f0d4] text-brand-dark outline-none transition hover:bg-[#dce8c4] focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 dark:bg-brand/20 dark:text-brand-light dark:hover:bg-brand/30"
             >
               {isDark ? <HiSun size={22} /> : <HiMoon size={22} />}
             </button>
@@ -114,21 +138,19 @@ const Navbar = () => {
               type="button"
               onClick={() => setMenuOpen((o) => !o)}
               aria-label="Toggle menu"
-              className="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 cursor-pointer
-                         hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="cursor-pointer rounded-lg p-2 text-gray-600 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 md:hidden"
             >
               {menuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile menu */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            menuOpen ? 'max-h-96 pb-4' : 'max-h-0'
+          className={`overflow-hidden transition-all duration-300 ease-in-out md:hidden ${
+            menuOpen ? 'max-h-[28rem] pb-4' : 'max-h-0'
           }`}
         >
-          <ul className="flex flex-col gap-1 pt-2 border-t border-gray-100 dark:border-gray-800 list-none m-0 p-0">
+          <ul className="m-0 flex list-none flex-col gap-1 border-t border-gray-100 p-0 pt-2 dark:border-gray-800">
             {NAV_LINKS.map(({ to, label, end, isActive }) => (
               <li key={label}>
                 <NavLink
@@ -136,17 +158,42 @@ const Navbar = () => {
                   end={end}
                   onClick={closeMenu}
                   className={() =>
-                    `block px-4 py-3 rounded-lg text-base font-medium transition-colors duration-200 cursor-pointer
-                     ${isActive()
-                       ? 'text-brand bg-brand/5'
-                       : 'text-gray-700 dark:text-gray-200 hover:text-brand hover:bg-brand/5 dark:hover:text-brand-light'
-                     }`
+                    `block cursor-pointer rounded-lg px-4 py-3 text-base font-medium transition-colors duration-200 ${
+                      isActive()
+                        ? 'bg-brand/5 text-brand'
+                        : 'text-gray-700 hover:bg-brand/5 hover:text-brand dark:text-gray-200 dark:hover:text-brand-light'
+                    }`
                   }
                 >
                   {label}
                 </NavLink>
               </li>
             ))}
+            <li className="mt-2 flex flex-wrap items-center gap-3 border-t border-gray-100 px-4 pt-3 dark:border-gray-800">
+              <a
+                href={`tel:${primaryPhone.tel}`}
+                className="inline-flex cursor-pointer items-center gap-2.5 rounded-full py-1 outline-none"
+              >
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#e8f0d4] dark:bg-brand/20">
+                  <HiPhone className="h-5 w-5 text-brand-dark dark:text-brand-light" aria-hidden />
+                </span>
+                <span className="flex flex-col leading-tight">
+                  <span className="text-xs text-gray-500 dark:text-gray-400">Call now</span>
+                  <span className="text-sm font-bold text-gray-900 dark:text-white">
+                    {primaryPhone.display}
+                  </span>
+                </span>
+              </a>
+              <a
+                href={INSTITUTE_MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#e8f0d4] dark:bg-brand/20"
+                aria-label="Open location in Google Maps"
+              >
+                <HiLocationMarker className="h-6 w-6 text-brand-dark dark:text-brand-light" aria-hidden />
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
