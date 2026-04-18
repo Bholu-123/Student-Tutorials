@@ -4,9 +4,9 @@ import { CLASSROOM_IMAGES } from '../constants/gallery';
 
 const GalleryClassroomPage = () => (
   <PhotoGrid
-    title="Our Classrooms"
+    title="Our Campus"
     images={CLASSROOM_IMAGES}
-    breadcrumbLeaf="Classroom"
+    breadcrumbLeaf="Campus"
   />
 );
 

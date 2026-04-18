@@ -1,11 +1,11 @@
 import { SEG } from '../routes/paths';
 import { GALLERY } from './mediaPaths';
 
-/** Home gallery cards — use files that exist under gallery/classroom (DSC_* may be absent). */
+/** Home gallery cards — campus album files live under public/gallery/classroom (DSC_* may be absent). */
 export const GALLERY_CATEGORIES = [
   {
     image: `${GALLERY.classroom}/classroom-29.jpg`,
-    title: 'Classroom',
+    title: 'Campus',
     slug: SEG.GALLERY_CLASSROOM,
   },
   {
@@ -27,7 +27,7 @@ export const CLASSROOM_IMAGES = Array.from(
   { length: CLASSROOM_TO - CLASSROOM_FROM + 1 },
   (_, i) => ({
     src: `${GALLERY.classroom}/classroom-${String(CLASSROOM_FROM + i).padStart(2, '0')}.jpg`,
-    caption: 'Classroom',
+    caption: 'Campus',
   })
 );
 
@@ -63,14 +63,9 @@ export const EVENTS_IMAGES = [
     src: eventSrc(i + 1),
     caption: 'Annual Event',
   })),
-  { src: `${GALLERY.classroom}/classroom-10.jpg`, caption: 'Drawing Competition' },
-  { src: `${GALLERY.classroom}/classroom-11.jpg`, caption: 'Drawing Competition' },
-  { src: `${GALLERY.classroom}/classroom-12.jpg`, caption: 'Drawing Competition' },
-  { src: `${GALLERY.classroom}/classroom-13.jpg`, caption: 'Drawing Competition' },
-  { src: `${GALLERY.classroom}/classroom-14.jpg`, caption: 'Drawing Competition' },
   { src: eventSrc(11), caption: 'Annual Event' },
   { src: eventSrc(12), caption: 'Annual Event' },
-  ...Array.from({ length: EVENTS_NUMBERED_LAST - 12 }, (_, i) => ({
+  ...Array.from({ length: EVENTS_NUMBERED_LAST - 13 }, (_, i) => ({
     src: eventSrc(13 + i),
     caption: 'Annual Event',
   })),
