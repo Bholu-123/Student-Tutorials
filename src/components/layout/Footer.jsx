@@ -21,11 +21,13 @@ const SOCIAL = [
 const INSTITUTE_LINKS = [
   { to: PATHS.HOME, label: 'Home' },
   { to: PATHS.GALLERY, label: 'Gallery' },
+  { to: PATHS.RESULTS, label: 'Results' },
   { to: COURSES_SECTION_TO, label: 'Courses' },
 ];
 
 const SERVICE_LINKS = [
   { to: COURSES_SECTION_TO, label: 'Courses' },
+  { to: PATHS.RESULTS, label: 'Results' },
   { to: PATHS.GALLERY_EVENTS, label: 'Our Events' },
   { to: PATHS.CONTACT, label: 'Contact Us' },
 ];

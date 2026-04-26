@@ -23,8 +23,8 @@ export const FEATURES = [
   },
   {
     image: `${GALLERY.features}/5.png`,
-    title: 'CCTV Surveillance',
-    para: 'Campus and classroom areas monitored with CCTV so parents and students can learn in a safe, accountable environment.',
+    title: 'AC Classrooms & CCTV Surveillance',
+    para: 'Air-conditioned classrooms for comfortable, focused learning, with campus and classroom areas monitored through CCTV so parents and students learn in a safe, accountable environment.',
   },
   {
     image: `${GALLERY.features}/6.jpeg`,

@@ -3,6 +3,9 @@ import { useLocation } from 'react-router-dom';
 import Hero from '../components/sections/Hero';
 import Features from '../components/sections/Features';
 import Courses from '../components/sections/Courses';
+import ExcellenceLegacySection from '../components/sections/ExcellenceLegacySection';
+import ScholorshipSection from '../components/sections/ScholorshipSection';
+import ResultsPreviewSection from '../components/sections/ResultsPreviewSection';
 import Testimonials from '../components/sections/Testimonials';
 import FaqSection from '../components/sections/FaqSection';
 import ContactSection from '../components/sections/ContactSection';
@@ -24,7 +27,10 @@ const HomePage = () => {
     <>
       <Hero />
       <Courses />
+      <ExcellenceLegacySection />
+      <ScholorshipSection />
       <Features />
+      <ResultsPreviewSection />
       <Testimonials />
       <FaqSection />
       <ContactSection />

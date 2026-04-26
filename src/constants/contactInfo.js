@@ -12,9 +12,9 @@ export const DEVRUKH_BRANCH_ADDRESS =
 export const BRANCH_LOCATIONS = 'Chiplun / Lavel / Pedhambe / Devrukh';
 
 export const CONTACT_PHONES = [
+  { tel: '+919272188068', display: '9272188068' },
   { tel: '+917387709241', display: '7387709241' },
   { tel: '+917559121626', display: '7559121626' },
-  { tel: '+919272188068', display: '9272188068' },
 ];
 
 /** E.164 without + (wa.me / WhatsApp send API). */

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { HiLocationMarker, HiPhone } from 'react-icons/hi';
 import { FaWhatsapp } from 'react-icons/fa';
 import SectionWrapper from '../common/SectionWrapper';
@@ -53,11 +54,26 @@ const inputErrorClass =
 const Req = () => <span className="text-red-600 dark:text-red-400" aria-hidden> *</span>;
 
 const ContactSection = () => {
+  const [searchParams] = useSearchParams();
+  const allowedCourseValues = useMemo(
+    () => new Set(ENQUIRY_COURSE_OPTIONS.map((o) => o.value)),
+    []
+  );
+
   const [form, setForm] = useState(INITIAL);
   const [fieldErrors, setFieldErrors] = useState(INITIAL_FIELD_ERRORS);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    const raw = searchParams.get('course');
+    if (raw == null || raw === '') return;
+    const decoded = decodeURIComponent(raw).trim();
+    if (allowedCourseValues.has(decoded)) {
+      setForm((prev) => ({ ...prev, course: decoded }));
+    }
+  }, [searchParams, allowedCourseValues]);
 
   const handleChange = (e) => {
     const { name } = e.target;

@@ -1,39 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionWrapper from '../common/SectionWrapper';
-import Button from '../common/Button';
-import { COURSES } from '../../constants/courses';
+import { LANDING_COURSE_CARDS } from '../../constants/courses';
 import { useInView } from '../../hooks/useInView';
 
-const CourseCard = ({ image, title, description, to }) => (
+const GoalCard = ({ image, label, to, ariaLabel }) => (
   <Link
     to={to}
-    className="card-lift group flex flex-col overflow-hidden rounded-2xl bg-white text-left shadow-md ring-1 ring-black/[0.04] transition-shadow duration-300 ease-in-out hover:shadow-xl focus-visible:ring-2 focus-visible:ring-brand dark:bg-gray-800 dark:ring-gray-700 md:flex-row"
+    aria-label={ariaLabel}
+    className="card-lift group flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-md ring-1 ring-black/6 transition-shadow duration-300 ease-in-out hover:shadow-xl focus-visible:ring-2 focus-visible:ring-brand dark:bg-gray-800 dark:ring-gray-700"
   >
-    <div className="h-56 overflow-hidden md:h-auto md:w-2/5">
+    <div className="mb-4 flex h-36 w-36 items-center justify-center overflow-hidden rounded-xl bg-sky-50 dark:bg-sky-950/40 sm:h-40 sm:w-40">
       <img
         src={image}
-        alt={title}
-        className="img-zoom-hover h-full w-full object-cover group-hover:scale-[1.05]"
+        alt=""
+        className="img-zoom-hover max-h-full max-w-full object-contain transition-transform duration-300 ease-out group-hover:scale-[1.06]"
+        decoding="async"
       />
     </div>
-    <div className="flex flex-col justify-center p-6 md:w-3/5">
-      <h3 className="mb-3 text-xl font-bold text-gray-800 dark:text-white">{title}</h3>
-      <p className="mb-5 text-sm leading-relaxed text-gray-600 dark:text-gray-400">{description}</p>
-      <div>
-        <span className="inline-block">
-          <Button size="sm" className="pointer-events-none">
-            Learn More
-          </Button>
-        </span>
-      </div>
-    </div>
+    <span className="text-base font-semibold text-gray-900 dark:text-white">{label}</span>
+    <span className="mt-2 text-xs font-medium text-brand">View details</span>
   </Link>
 );
 
 const Courses = () => {
   const [headRef, headInView] = useInView({ threshold: 0.15, rootMargin: '80px 0px 80px 0px' });
-  const [listRef, listInView] = useInView({ threshold: 0.1, rootMargin: '80px 0px 80px 0px' });
+  const [gridRef, gridInView] = useInView({ threshold: 0.1, rootMargin: '80px 0px 80px 0px' });
 
   return (
     <SectionWrapper id="courses" className="section-stripe-white relative overflow-hidden">
@@ -45,15 +37,19 @@ const Courses = () => {
       <div ref={headRef} className={`reveal-heading ${headInView ? 'is-visible' : ''}`}>
         <h2 className="section-title">Courses Offered</h2>
         <div className="title-divider" />
+        <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-gray-600 dark:text-gray-400">
+          Select a path below to open the full course details — 11th &amp; 12th is offered as separate
+          JEE and NEET programmes, each with MHT-CET support.
+        </p>
       </div>
 
       <div
-        ref={listRef}
-        className={`reveal-stagger mx-auto flex max-w-4xl flex-col gap-8 ${listInView ? 'is-visible' : ''}`}
+        ref={gridRef}
+        className={`reveal-stagger mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-5 sm:gap-8 lg:grid-cols-4 ${gridInView ? 'is-visible' : ''}`}
       >
-        {COURSES.map((c, index) => (
-          <div key={c.to} className="reveal-item" style={{ '--stagger': index }}>
-            <CourseCard {...c} />
+        {LANDING_COURSE_CARDS.map((c, index) => (
+          <div key={c.id} className="reveal-item flex justify-center" style={{ '--stagger': index }}>
+            <GoalCard {...c} />
           </div>
         ))}
       </div>

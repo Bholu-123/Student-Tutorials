@@ -7,6 +7,7 @@ import {
   COURSES_SECTION_TO,
   isCoursesNavActive,
   isGalleryNavActive,
+  isResultsNavActive,
 } from '../../routes/paths';
 import { BRAND } from '../../constants/mediaPaths';
 import { CONTACT_PHONES, INSTITUTE_MAPS_URL } from '../../constants/contactInfo';
@@ -29,6 +30,12 @@ const navLinks = (pathname, hash) => [
     label: 'Gallery',
     end: false,
     isActive: () => isGalleryNavActive(pathname),
+  },
+  {
+    to: PATHS.RESULTS,
+    label: 'Results',
+    end: false,
+    isActive: () => isResultsNavActive(pathname),
   },
   { to: PATHS.CONTACT, label: 'Contact', end: false, isActive: () => pathname === PATHS.CONTACT },
 ];

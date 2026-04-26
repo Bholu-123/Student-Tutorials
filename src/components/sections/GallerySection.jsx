@@ -39,7 +39,7 @@ const GallerySection = () => (
     <Breadcrumbs items={[{ label: 'Gallery' }]} />
     <h2 className="section-title">Gallery</h2>
     <div className="title-divider" />
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+    <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
       {GALLERY_CATEGORIES.map((cat) => (
         <GalleryCard key={cat.slug} {...cat} />
       ))}

@@ -1,6 +1,7 @@
 /** Values for the enquiry form "Course" field (must match API / sheet). */
 
 export const ENQUIRY_COURSE_OPTIONS = [
+  { value: 'Scholorship', label: 'Scholorship' },
   { value: '8th', label: '8th' },
   { value: '9th', label: '9th' },
   { value: '10th', label: '10th' },

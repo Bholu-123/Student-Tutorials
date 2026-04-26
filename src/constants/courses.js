@@ -1,27 +1,37 @@
 import { GALLERY } from './mediaPaths';
 import { PATHS } from '../routes/paths';
 
-/** Order: JEE/NEET first, then SSC, then 8th & 9th. `to` is the Learn More / card target. */
-export const COURSES = [
+/**
+ * Landing “Courses Offered” tiles — artwork from `public/gallery/courses/`.
+ * Doctor → NEET track, Engineer → JEE track; 8th–9th and SSC keep dedicated pages.
+ */
+export const LANDING_COURSE_CARDS = [
   {
-    image: `${GALLERY.classroom}/jee-landing.jpeg`,
-    title: 'JEE, NEET & MHT-CET (11th & 12th)',
-    to: PATHS.COURSE_JEE_NEET,
-    description:
-      'Full-course JEE/NEET batches (IB), Regular MHT-CET (RB), and Target batches (TB) with daily teaching, DPPs, study hours, and periodic full-length tests as per exam patterns.',
+    id: 'doctor',
+    image: `${GALLERY.courses}/course-doctor.png`,
+    label: 'Doctor',
+    to: PATHS.COURSE_NEET_MHTCET,
+    ariaLabel: 'Doctor — NEET and MHT-CET (11th and 12th)',
   },
   {
-    image: `${GALLERY.classroom}/ssc-landing.jpeg`,
-    title: 'SSC (Class 10)',
-    to: PATHS.COURSE_SSC,
-    description:
-      'Maharashtra State Board and CBSE Class 10: all subjects with dedicated faculty per subject. Early syllabus completion, structured revision, tests, and prelims aligned with SSC patterns.',
+    id: 'engineer',
+    image: `${GALLERY.courses}/course-engineer.png`,
+    label: 'Engineer',
+    to: PATHS.COURSE_JEE_MHTCET,
+    ariaLabel: 'Engineer — JEE and MHT-CET (11th and 12th)',
   },
   {
-    image: `${GALLERY.classroom}/classroom-15.jpg`,
-    title: 'Classes 8th & 9th',
+    id: '8th-9th',
+    image: `${GALLERY.courses}/course-8th-9th.png`,
+    label: '8th & 9th',
     to: PATHS.COURSE_8TH_9TH,
-    description:
-      'Foundation batches for Class 8 and 9: balanced weekly schedule, evening options, and holiday intensives so concepts stay strong before board years.',
+    ariaLabel: 'Classes 8 and 9',
+  },
+  {
+    id: 'ssc',
+    image: `${GALLERY.courses}/course-10th.png`,
+    label: 'SSC',
+    to: PATHS.COURSE_SSC,
+    ariaLabel: 'SSC Class 10',
   },
 ];

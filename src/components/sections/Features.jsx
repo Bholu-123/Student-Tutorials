@@ -2,6 +2,7 @@ import React from 'react';
 import { HiDownload } from 'react-icons/hi';
 import SectionWrapper from '../common/SectionWrapper';
 import { FEATURES } from '../../constants/features';
+import { BROCHURE_DOWNLOADS } from '../../constants/brochures';
 import { useInView } from '../../hooks/useInView';
 
 const BROCHURE_HEADLINE = "Architurn's Student Tutorial";
@@ -9,7 +10,7 @@ const BROCHURE_SUBTEXT =
   'Expert coaching for SSC, 8th and 9th Std, and integrated JEE/NEET/CET preparation in Chiplun.';
 
 const FeatureCard = ({ image, title, para }) => (
-  <div className="card-lift group flex h-full min-h-0 flex-col rounded-2xl border border-gray-200/90 bg-white p-6 text-center shadow-md ring-1 ring-black/[0.04] transition-shadow duration-300 ease-in-out hover:shadow-xl dark:border-gray-700 dark:bg-gray-800">
+  <div className="card-lift group flex h-full min-h-0 flex-col rounded-2xl border border-gray-200/90 bg-white p-6 text-center shadow-md ring-1 ring-black/4 transition-shadow duration-300 ease-in-out hover:shadow-xl dark:border-gray-700 dark:bg-gray-800">
     <h3 className="mb-2 text-base font-bold tracking-tight text-gray-800 dark:text-gray-100">{title}</h3>
     <p className="mb-4 flex-1 text-sm leading-relaxed text-gray-600 dark:text-gray-400">{para}</p>
     <div className="relative mx-auto mt-auto w-full max-w-[200px]">
@@ -68,11 +69,11 @@ const Features = () => {
         </div>
 
         <div
-          className={`reveal-fade mx-auto max-w-6xl overflow-hidden rounded-2xl border border-gray-200/90 bg-white p-6 shadow-md ring-1 ring-black/[0.04] transition-shadow duration-300 ease-in-out hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 sm:p-8 ${
+          className={`reveal-fade mx-auto max-w-6xl overflow-hidden rounded-2xl border border-gray-200/90 bg-white p-6 shadow-md ring-1 ring-black/4 transition-shadow duration-300 ease-in-out hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 sm:p-8 ${
             blockInView ? 'is-visible' : ''
           }`}
         >
-          <div className="flex flex-col items-stretch gap-6 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col items-stretch gap-8 md:flex-row md:items-center md:justify-between md:gap-10">
             <div className="max-w-xl flex-1 text-center md:text-left">
               <h3 className="text-xl font-bold tracking-tight text-gray-800 dark:text-gray-100 md:text-2xl">
                 {BROCHURE_HEADLINE}
@@ -81,18 +82,21 @@ const Features = () => {
                 {BROCHURE_SUBTEXT}
               </p>
             </div>
-            <div className="flex shrink-0 flex-col items-center md:items-end">
-              <a
-                href="/Broucher-2025.pdf"
-                download="Broucher-2025.pdf"
-                className="btn-cta-soft group/cta relative inline-flex cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-xl bg-brand px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-brand-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"
-              >
-                Download Brochure
-                <HiDownload
-                  className="relative z-10 h-5 w-5 text-white transition-transform duration-300 ease-in-out group-hover/cta:translate-y-0.5"
-                  aria-hidden
-                />
-              </a>
+            <div className="flex w-full flex-col gap-3 sm:mx-auto sm:max-w-lg sm:flex-row md:mx-0 md:w-[min(100%,28rem)] md:shrink-0">
+              {BROCHURE_DOWNLOADS.map(({ id, label, href, downloadAs }) => (
+                <a
+                  key={id}
+                  href={href}
+                  download={downloadAs}
+                  className="btn-cta-soft group/cta inline-flex min-h-12 flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-center text-sm font-semibold text-white shadow-md hover:bg-brand-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"
+                >
+                  {label}
+                  <HiDownload
+                    className="relative z-10 h-5 w-5 shrink-0 text-white transition-transform duration-300 ease-in-out group-hover/cta:translate-y-0.5"
+                    aria-hidden
+                  />
+                </a>
+              ))}
             </div>
           </div>
         </div>

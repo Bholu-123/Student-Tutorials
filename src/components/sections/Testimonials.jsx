@@ -21,13 +21,7 @@ function QuoteBody({ text }) {
 
 const TestimonialCard = ({ image, name, text, branch, college }) => (
   <article className="card-lift group flex h-full min-h-0 flex-col rounded-[1.75rem] border border-gray-100 bg-white p-8 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/[0.03] transition-shadow duration-300 ease-in-out hover:shadow-[0_20px_48px_-14px_rgba(0,0,0,0.18)] dark:border-gray-700 dark:bg-gray-800">
-    <div className="animate-quote-soft mb-4 text-5xl font-serif leading-none text-brand/30" aria-hidden>
-      &ldquo;
-    </div>
-    <div className="min-h-0 flex-1">
-      <QuoteBody text={text} />
-    </div>
-    <div className="mt-6 border-t border-gray-100 pt-6 dark:border-gray-700">
+    <div className="mb-6 border-b border-gray-100 pb-6 dark:border-gray-700">
       <div className="flex items-center gap-4">
         <img
           src={image}
@@ -44,6 +38,12 @@ const TestimonialCard = ({ image, name, text, branch, college }) => (
           ) : null}
         </div>
       </div>
+    </div>
+    <div className="animate-quote-soft mb-4 text-5xl font-serif leading-none text-brand/30" aria-hidden>
+      &ldquo;
+    </div>
+    <div className="min-h-0 flex-1">
+      <QuoteBody text={text} />
     </div>
   </article>
 );

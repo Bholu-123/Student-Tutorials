@@ -9,8 +9,10 @@ const CourseSscPage = lazy(() => import('../pages/CourseSscPage'));
 const GalleryClassroomPage = lazy(() => import('../pages/GalleryClassroomPage'));
 const GalleryEventsPage = lazy(() => import('../pages/GalleryEventsPage'));
 const GalleryCelebrationsPage = lazy(() => import('../pages/GalleryCelebrationsPage'));
+const ResultsPage = lazy(() => import('../pages/ResultsPage'));
 const Course8thPage = lazy(() => import('../pages/Course8thPage'));
-const CourseJeeNeetPage = lazy(() => import('../pages/CourseJeeNeetPage'));
+const CourseJeeMhtcetPage = lazy(() => import('../pages/CourseJeeMhtcetPage'));
+const CourseNeetMhtcetPage = lazy(() => import('../pages/CourseNeetMhtcetPage'));
 
 const PageSpinner = () => (
   <div className="flex justify-center items-center py-32">
@@ -34,10 +36,17 @@ const AppRoutes = () => (
         element={<CourseSscPage />}
       />
       <Route path={PATHS.COURSE_8TH_9TH} element={<Course8thPage />} />
-      <Route path={PATHS.COURSE_JEE_NEET} element={<CourseJeeNeetPage />} />
+      <Route path={PATHS.COURSE_JEE_MHTCET} element={<CourseJeeMhtcetPage />} />
+      <Route path={PATHS.COURSE_NEET_MHTCET} element={<CourseNeetMhtcetPage />} />
       <Route path={PATHS.GALLERY_CLASSROOM} element={<GalleryClassroomPage />} />
       <Route path={PATHS.GALLERY_EVENTS} element={<GalleryEventsPage />} />
       <Route path={PATHS.GALLERY_CELEBRATIONS} element={<GalleryCelebrationsPage />} />
+      <Route path={PATHS.RESULTS} element={<ResultsPage />} />
+      <Route
+        path="/result-listing/jee-main-results"
+        element={<Navigate to="/result-listing/mht-cet-results" replace />}
+      />
+      <Route path="/result-listing/:listingSlug" element={<ResultsPage />} />
 
       {LEGACY_REDIRECTS.map(({ from, to }) => (
         <Route key={from} path={from} element={<Navigate to={to} replace />} />
