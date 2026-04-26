@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaFacebookF, FaInstagram, FaTwitter, FaGoogle } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaGoogle } from 'react-icons/fa';
 import { HiPhone, HiMail, HiLocationMarker } from 'react-icons/hi';
 import { PATHS, COURSES_SECTION_TO } from '../../routes/paths';
 import { BRAND } from '../../constants/mediaPaths';
@@ -12,10 +12,21 @@ import {
 } from '../../constants/contactInfo';
 
 const SOCIAL = [
-  { Icon: FaFacebookF, href: 'https://www.facebook.com/', label: 'Facebook' },
-  { Icon: FaInstagram, href: 'https://www.instagram.com/', label: 'Instagram' },
-  { Icon: FaTwitter, href: 'https://twitter.com/', label: 'Twitter' },
-  { Icon: FaGoogle, href: 'https://www.google.com/search?q=Student%27s+Tutorial+Chiplun', label: 'Google' },
+  {
+    Icon: FaFacebookF,
+    href: 'https://www.facebook.com/studentstutorialjeeneetchiplun',
+    label: 'Facebook',
+  },
+  {
+    Icon: FaInstagram,
+    href: 'https://www.instagram.com/studentstutorialjeeneet',
+    label: 'Instagram',
+  },
+  {
+    Icon: FaGoogle,
+    href: 'https://student-tutorials.vercel.app/',
+    label: 'Official website',
+  },
 ];
 
 const INSTITUTE_LINKS = [
@@ -53,7 +64,7 @@ const Footer = () => (
           <div className="flex gap-3 mt-5">
             {SOCIAL.map(({ Icon, href, label }) => (
               <a
-                key={label}
+                key={href}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
