@@ -8,9 +8,9 @@ const GoalCard = ({ image, label, to, ariaLabel }) => (
   <Link
     to={to}
     aria-label={ariaLabel}
-    className="card-lift group flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-md ring-1 ring-black/6 transition-shadow duration-300 ease-in-out hover:shadow-xl focus-visible:ring-2 focus-visible:ring-brand dark:bg-gray-800 dark:ring-gray-700"
+    className="card-lift group mx-auto flex w-full max-w-[280px] flex-col items-center rounded-2xl bg-white p-5 text-center shadow-md ring-1 ring-black/6 transition-shadow duration-300 ease-in-out hover:shadow-xl focus-visible:ring-2 focus-visible:ring-brand sm:max-w-none sm:p-6 dark:bg-gray-800 dark:ring-gray-700"
   >
-    <div className="mb-4 flex h-36 w-36 items-center justify-center overflow-hidden rounded-xl bg-sky-50 dark:bg-sky-950/40 sm:h-40 sm:w-40">
+    <div className="mb-3 flex h-32 w-32 items-center justify-center overflow-hidden rounded-xl bg-sky-50 dark:bg-sky-950/40 sm:mb-4 sm:h-40 sm:w-40">
       <img
         src={image}
         alt=""
@@ -28,7 +28,10 @@ const Courses = () => {
   const [gridRef, gridInView] = useInView({ threshold: 0.1, rootMargin: '80px 0px 80px 0px' });
 
   return (
-    <SectionWrapper id="courses" className="section-stripe-white relative overflow-hidden">
+    <SectionWrapper
+      id="courses"
+      className="section-stripe-white relative overflow-hidden pb-28 md:pb-0"
+    >
       <div
         className="pointer-events-none absolute right-0 top-0 h-64 w-64 translate-x-1/3 rounded-full bg-brand/8 blur-3xl dark:bg-brand/10"
         aria-hidden
@@ -45,7 +48,7 @@ const Courses = () => {
 
       <div
         ref={gridRef}
-        className={`reveal-stagger mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-5 sm:gap-8 lg:grid-cols-4 ${gridInView ? 'is-visible' : ''}`}
+        className={`reveal-stagger mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4 ${gridInView ? 'is-visible' : ''}`}
       >
         {LANDING_COURSE_CARDS.map((c, index) => (
           <div key={c.id} className="reveal-item flex justify-center" style={{ '--stagger': index }}>

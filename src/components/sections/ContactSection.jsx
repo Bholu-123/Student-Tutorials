@@ -160,7 +160,7 @@ const ContactSection = () => {
       <div className="title-divider" />
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
-        <div className="lg:col-span-2 flex flex-col gap-6">
+        <div className="order-2 flex flex-col gap-6 lg:order-0 lg:col-span-2">
           <div className="flex flex-col gap-4">
             <div className="flex gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 shadow-sm">
               <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center shrink-0">
@@ -252,7 +252,7 @@ const ContactSection = () => {
           </div>
         </div>
 
-        <div className="lg:col-span-3">
+        <div className="order-1 lg:order-0 lg:col-span-3">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 md:p-8">
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-5 pb-4 border-b border-gray-200 dark:border-gray-700">
               <span className="font-semibold text-gray-800 dark:text-gray-200">Required fields</span>

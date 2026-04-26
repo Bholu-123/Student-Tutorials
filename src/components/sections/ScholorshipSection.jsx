@@ -23,10 +23,10 @@ const ScholorshipSection = () => (
         Identify your potential and win scholarships for a brighter future.
       </p>
 
-      <div className="mt-10">
+      <div className="mt-10 overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-black/5 transition-shadow duration-300 hover:shadow-xl dark:bg-gray-900 dark:ring-gray-700">
         <Link
           to={CONTACT_SCHOLORSHIP}
-          className="group relative block overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-black/5 transition-shadow duration-300 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 dark:bg-gray-900 dark:ring-gray-700"
+          className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand"
           aria-label="Register for scholarship exams. Opens the contact page with Scholorship selected as the course."
         >
           <img
@@ -35,13 +35,15 @@ const ScholorshipSection = () => (
             decoding="async"
             className="block w-full object-cover object-center transition-transform duration-300 ease-out group-hover:scale-[1.01]"
           />
-          <span
-            className="absolute bottom-5 left-1/2 z-10 inline-flex -translate-x-1/2 items-center justify-center rounded-full bg-linear-to-r from-brand via-brand-light to-brand-dark px-7 py-2.5 text-sm font-bold text-white shadow-md ring-1 ring-black/10 transition duration-300 group-hover:shadow-lg group-hover:brightness-[1.03] sm:bottom-7 sm:px-9 sm:py-3 sm:text-base dark:ring-white/10"
-            aria-hidden
+        </Link>
+        <div className="flex justify-center border-t border-gray-100 bg-white px-4 py-4 dark:border-gray-800 dark:bg-gray-900 sm:py-5">
+          <Link
+            to={CONTACT_SCHOLORSHIP}
+            className="inline-flex items-center justify-center rounded-full bg-linear-to-r from-brand via-brand-light to-brand-dark px-8 py-3 text-sm font-bold text-white shadow-md ring-1 ring-black/10 transition duration-300 hover:shadow-lg hover:brightness-[1.03] sm:px-10 sm:py-3.5 sm:text-base dark:ring-white/10"
           >
             Register Now
-          </span>
-        </Link>
+          </Link>
+        </div>
       </div>
     </div>
   </SectionWrapper>
